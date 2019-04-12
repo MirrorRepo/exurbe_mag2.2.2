@@ -1,0 +1,95 @@
+
+	<div class="upper_footer">
+		<div class="custom-container">
+			<div class="row">
+				<div class="col-md-4">
+					<h3 class="footer-heading">Folge uns</h3>
+					<ul class="social_ul">
+						<li><a href="javascript:void(0)"><i class="fa fa-facebook-f"></i></a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-pinterest"></i></a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-instagram"></i></a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<h3 class="footer-heading">Newsletter abonnieren</h3>
+					 
+					 <?php
+							echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('footer_middle')->toHtml();
+					?>
+				</div>
+				<div class="col-md-4">
+					<h3 class="footer-heading">Kontakt</h3>
+					<p><a href="mailto:contact@exurbecosmetics.com">contact@exurbecosmetics.com</a></p>
+					<p><a href="tel:41445520905">Tel. +41445520905</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="middle_footer">
+		<div class="custom-container">
+			<p>SICHER EINKAUFEN. SICHER BEZAHLEN. SCHNELL GELIEFERT.</p>
+			<ul class="cardlist">
+				<li><img src="<?php echo $this->getViewFileUrl('images/pay1.jpg'); ?>" alt=""></li>
+				<li><img src="<?php echo $this->getViewFileUrl('images/pay2.jpg'); ?>" alt=""></li>
+				<li><img src="<?php echo $this->getViewFileUrl('images/pay3.jpg'); ?>" alt=""></li>
+				<li><img src="<?php echo $this->getViewFileUrl('images/pay4.jpg'); ?>" alt=""></li>
+				<li><img src="<?php echo $this->getViewFileUrl('images/pay5.jpg'); ?>" alt=""></li>
+				<li><img src="<?php echo $this->getViewFileUrl('images/pay6.jpg'); ?>" alt=""></li>
+				<li><img src="<?php echo $this->getViewFileUrl('images/pay7.jpg'); ?>" alt=""></li>
+				<li><img src="<?php echo $this->getViewFileUrl('images/pay8.jpg'); ?>" alt=""></li>
+			</ul>
+		</div>
+	</div>
+	<div class="bottom_footer">
+		<div class="custom-container">
+			<div class="row">
+				<div class="col-sm-1">
+					<a class="footer_toggle" href="javascript:void(0)"><i class="fa fa-angle-down"></i></a>
+				</div>
+				<div class="col-sm-2">
+					<h5>Über uns</h5>
+					<ul class="bottom_ul">
+						<li><a href="#">Über uns</a></li>
+						<li><a href="#">Standorte</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-2">
+					<h5>Für dich</h5>
+					<ul class="bottom_ul">
+						<li><a href="#">Fragen und Antworten</a></li>
+						<li><a href="#">Kontakt</a></li>
+						<li><a href="#">Jobs</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-2">
+					<h5>Partner & Presse</h5>
+					<ul class="bottom_ul">
+						<li><a href="#">Partnerschaft</a></li>
+						<li><a href="#">Presse</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-2">
+					<h5>Rechtliches</h5>
+					<ul class="bottom_ul">
+						<li><a href="#">Geschäftsbedingungen</a></li>
+						<li><a href="#">Datenschutz</a></li>
+						<li><a href="#">Impressum</a></li>	
+					</ul>
+				</div>
+				<div class="col-sm-3"><p>© 2018 abVentures AG. Alle Rechte vorbehalten.</p></div>
+			</div>
+		</div>
+	</div>
+
+<script>   
+	jQuery(document).ready(function(){
+		jQuery('.footer_toggle').click(function(){
+		
+			jQuery('.bottom_footer .bottom_ul').toggle(500);
+			
+		});
+	})
+</script>   
+ 

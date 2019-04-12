@@ -1,0 +1,96 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()): ?>
+<div class="box-tocart">
+    <div class="fieldset">
+        <?php if ($block->shouldRenderQuantity()): ?>
+        <div class="field qty">
+            <label class="label" for="qty"><span><?= /* @escapeNotVerified */ __('Qty') ?></span></label>
+            <div class="control">
+              <div class="input-group-button">
+                        <span class="input-number-decrement"><a href="javascript: void(0);" id="decrement"><i class="fa fa-angle-up" aria-hidden="true"></i></a></span>
+                      </div>
+                <input type="number"
+                       name="qty"
+                       id="qty"
+                       value="<?= /* @escapeNotVerified */ $block->getProductDefaultQty() * 1 ?>"
+                       title="<?= /* @escapeNotVerified */ __('Qty') ?>"
+                       class="input-number input-text qty"
+                       data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                       />
+                       <div class="input-group-button">
+                         <span class="input-number-increment"><a href="javascript: void(0);" id="increment"><i class="fa fa-angle-down" aria-hidden="true"></i></a></span>
+                       </div>
+            </div>
+        </div>
+        <?php endif; ?>
+        <div class="actions">
+            <button type="submit"
+                    title="<?= /* @escapeNotVerified */ $buttonTitle ?>"
+                    class="action primary tocart"
+                    id="product-addtocart-button">
+                <span><?= /* @escapeNotVerified */ $buttonTitle ?></span>
+            </button>
+            <?= $block->getChildHtml('', true) ?>
+            <div class="add-shipping">
+                <img src="<?php echo $this->getViewFileUrl('images/detail-ship.jpg'); ?>" alt="" />
+                <p class="free_shipping_text"><?php echo __('Free Shipping')?><br/><?php echo __('Available immediately')?></p>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        'use strict';
+
+
+
+        $('#decrement').click(function(event) {
+          event.preventDefault();
+          /* Act on the event */
+          $('#qty').val(parseInt($('#qty').val())+1);
+        });
+
+        $('#increment').click(function(event) {
+          event.preventDefault();
+          /* Act on the event */
+          $('#qty').val(parseInt($('#qty').val())-1);
+        });
+
+
+
+
+        });
+</script>
+<?php if ($block->isRedirectToCartEnabled()) : ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/product/view/validation": {
+                "radioCheckboxClosest": ".nested"
+            }
+        }
+    }
+</script>
+<?php else : ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+</script>
+<?php endif; ?>

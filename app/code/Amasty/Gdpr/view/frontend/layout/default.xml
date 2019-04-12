@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Gdpr
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="amgdpr_popup" />
+    <body>
+        <referenceContainer name="after.body.start">
+            <block class="Amasty\Gdpr\Block\Notices" ifconfig="amasty_gdpr/cookie_policy/bar" name="amasty_cookie_notices" template="Amasty_Gdpr::notices.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="social-login-popup">
+            <referenceContainer name="before.body.end">
+                <block class="Amasty\Gdpr\Block\Popup"
+                       name="amasty.privacy.policy.popup"
+                       as="amasty_privacy_popup"/>
+            </referenceContainer>
+            <referenceContainer name="form.additional.info">
+                <block class="Amasty\Gdpr\Block\Checkbox" name="amasty_gdpr_create_account"/>
+            </referenceContainer>
+        </referenceContainer>
+    </body>
+</page>

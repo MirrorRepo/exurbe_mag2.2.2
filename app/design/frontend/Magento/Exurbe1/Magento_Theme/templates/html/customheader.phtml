@@ -1,0 +1,327 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+	<div class="topbar">
+		<div class="custom-container">
+			<ul class="top_ul">
+				<li class="vegan-icon"><img src="<?php echo $this->getViewFileUrl('images/svg/vigan1.svg'); ?>" /><span>100% <span><?= __("Vegan")?></span></span></li>
+				<li class="rabit-icon"><img src="<?php echo $this->getViewFileUrl('images/svg/rabit1.svg'); ?>" alt="" /><span><?= __("Cruelty free")?></span></li>
+				<li class="ship-icon"><img src="<?php echo $this->getViewFileUrl('images/svg/ship-truck1.svg'); ?>" alt="" /><span><?= __("free shipping")?> </span></li>
+				<li class="hidden-xs clock-icon"><img src="<?php echo $this->getViewFileUrl('images/svg/clock1.svg'); ?>" alt="" /><?= __("Speedy delivery")?></li>
+				<li class="hidden-xs page-icon"><img src="<?php echo $this->getViewFileUrl('images/svg/page1.svg'); ?>" alt="" /><?= __("Purchase on Account")?></li>
+				<li class="hidden-xs reload-icon"><img src="<?php echo $this->getViewFileUrl('images/svg/reload1.svg'); ?>" alt="" /><?= __("30 days return policy")?></li>
+			</ul>
+		</div>
+	</div>
+	<?php
+	//$blockObj= $this->getLayout()->getBlock('Favourite\FProduct\Block\Register');
+	//echo $blockObj->systemInfo();die();
+	    $request = $this->getRequest();
+	    $module = $request->getModuleName();
+	    $controller = $request->getControllerName();
+	    $action = $request->getActionName();
+		//	echo $controller; die("test");
+	    if($module == 'checkout' && $controller != 'cart' && $action == 'index')
+	    { ?>
+			<style type="text/css">.topbar { display: none; }</style>
+			<div class="topbar-checkout">
+				<div class="custom-container">
+					<p><?php echo __("SAFE SHOPPING. SECURE PAYMENT. SPEEDY DELIVERY."); ?></p>
+				</div>
+			</div>
+		<?php }
+		$url="";
+
+
+
+		// if($block->getItemsCount()==0)
+		// {
+		// 			$url="javascript:void(0)";
+		// }
+	//
+	?>
+
+    <div class="custom-container">
+		<div class="logo_div" dsfsd><?php echo $this->getChildHtml("logo"); ?></div>
+		<div class="site_ul">
+			<ul class="main_menu_ul">
+				<?php echo $this->getChildHtml('topMenu');?>
+			</ul>
+			<ul class="cart_menu_ul">
+				<li class="top_right_link">
+					<div class="dropdown">
+					 <span class="action toggle search-icon"  data-mage-init='{"dropdown":{}}' data-toggle="dropdown" aria-haspopup="true"/>
+								<!-- <a id="topSearch" href="javascript:void(0)" class="search-icon"></a> -->
+
+					 <ul class="dropdown-menu">
+						<?php echo $this->getChildHtml('topSearch'); ?>
+					 </ul>
+					</div>
+
+				</li>
+				<li class="top_right_minicart_link top_right_link" >
+<?php
+					if($block->isMobileDevice()==1)
+					{ ?>
+
+					<!-- <a  href="<?=$block->getBaseUrl()."checkout/cart/"?>" class="cart-icon" bob=".ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.mage-dropdown-dialog"></a> -->
+
+				<?php //echo $this->getLayout()->createBlock("Magento\Checkout\Block\Cart\Sidebar")->setTemplate("Magento_Checkout::cart/minicart-mobile.phtml")->toHtml(); ?>
+<?php echo $this->getChildHtml('minicart_mobile'); ?>
+
+				<?php 	}else { ?>
+
+<?php echo $this->getChildHtml('minicart'); ?>
+								<!-- <a  href="javascript:void(0)" class="cart-icon menu_cart" bob=".ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.mage-dropdown-dialog"></a> -->
+				<?php	} ?>
+
+
+				</li>
+				<!-- <li class="top_right_link"><a id="login-popup" href="javascript:void(0)" class="user-icon menu_cart" bob=".block-customer-login"></a></li> -->
+				<li><div class="dropdown">
+	 <span class="action toggle user-icon" data-mage-init='{"dropdown":{}}' data-toggle="dropdown-menu" aria-haspopup="true"></span>
+<ul class="block block-customer-login dropdown-menu">
+
+<li id="login-pop-RG"><?php echo $this->getChildHtml('custom_customer_form_login');?></li>
+<li id="register-pop-RG" style="display:none;"><?php echo $this->getChildHtml('custom_customer_form_register');?></li>
+</ul></div></li>
+				<li class="top_right_link"><a href="javascript:void(0)" class="language_dropdown" >
+				<?php echo $this->getLayout()->createBlock('Favourite\FProduct\Block\Switcher')->setTemplate('switch/languages.phtml')->toHtml();?>
+					<?php // echo $this->getChildHtml('store_language') ?>
+				</a></li>
+			</ul>
+	   </div>
+    </div>
+
+		<!-- <div class="example-dropdown-2" data-mage-init='{"dropdown":{}}'>
+<span class="action toggle" data-toggle="dropdown" aria-haspopup="true">
+        <span>span + dropdown</span>
+     </span>
+     <ul class="dropdown">
+         <li>
+             <span class="item">One</span>
+         </li>
+         <li>
+             <span class="item">Two</span>
+         </li>
+         <li>
+             <span class="item">Three</span>
+         </li>
+     </ul>
+</div> -->
+
+		<!-- <div class="actions dropdown example-dropdown-2">
+    <button class="action toggle"
+            data-mage-init='{"dropdown":{}}'
+            data-toggle="dropdown"
+            aria-haspopup="true">
+        <span>button + dropdown</span>
+    </button>
+    <ul class="dropdown">
+        <li>
+            <span class="item">One</span>
+        </li>
+        <li>
+            <span class="item">Two</span>
+        </li>
+        <li>
+            <span class="item">Three</span>
+        </li>
+    </ul>
+</div> -->
+
+<!-- <ul class="quick-links">
+    <li class="links-container">
+        <span data-mage-init='{"dropdown":{}}' data-toggle="dropdown">About</span>
+        <div class="customer-menu" data-target="dropdown">
+            <ul class="header links">
+                <li><a href="/contacts">Link 1</a></li>
+                <li><a href="/contacts">Link 2</a></li>
+                <li><a href="/contacts">Link 3</a></li>
+            </ul>
+        </div>
+    </li>
+</ul> -->
+
+<script>
+	jQuery(document).ready(function(){
+// 		jQuery('.menu_cart').click(function(e){
+// 		//if(e.target !== this)
+//
+// 			var ref= jQuery(this);
+// 			var bob =ref.attr('bob');
+// 			var bob_class= jQuery(bob);
+// 			jQuery('.menu_cart').removeClass('active');
+// // if(bob_class.is(":visible")){
+// // 	alert(bob_class);
+// // }else{
+// // 	jQuery( ".menu_cart" ).each(function( index ) {
+// // jQuery(jQuery(this).attr('bob')).hide();
+// // 	jQuery('.form-create-account').hide();
+// // });
+// // }
+// 			if(bob_class.css('display')=="none")
+// 			{
+// 					jQuery( ".menu_cart" ).each(function( index ) {
+// 				jQuery(jQuery(this).attr('bob')).hide();
+// 				});
+// 				if(bob==".ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.mage-dropdown-dialog"){
+// 					jQuery('#minicart-content-wrapper').parent().parent().show();
+// 						ref.addClass('active');
+// 				}else{
+// 					ref.addClass('active');
+// 					bob_class.show().change();
+// 				}
+// 					if(jQuery('.form-create-account').css('display')=="block")
+// 					{
+// 						jQuery(this).attr('bob');
+// 						// if(bob_class==".block-customer-login")
+// 						// {
+// 						// 	alert("ok1");
+// 						// 	bob_class.hide().change();
+// 						// }
+// 						jQuery('.block-customer-login').hide();
+// 						jQuery('.form-create-account').hide();
+// 					}
+// 			}else {
+// 			//	alert("ok");
+// 				bob_class.hide().change();
+// 				jQuery('.form-create-account').hide();
+// 				ref.removeClass('active');
+// 			}
+// 		});
+	// 	jQuery('#login-popup').click(function(){
+	// 		var xclas= jQuery(this).attr('class');
+	// 	//	console.log(xclas);
+	// 		jQuery('.block-customer-login').toggle();
+	// 		jQuery('.block-search').hide();
+	// 		jQuery('.cms-index-index .form-create-account').hide();
+	// 		// if(xclas=="user-icon active")
+	// 		// {
+	// 		// 	//console.log("change");
+	// 		// 	jQuery('#login-popup').addClass("user-icon");
+	// 		// }else {
+	// 		// 	jQuery('#login-popup').addClass("user-icon active");
+	// 		// }
+	//
+	// 	});
+	//
+	// 	jQuery('#topSearch').click(function(){
+	// 			var xclas= jQuery(this).attr('class');
+	// 		jQuery('.block-search').toggle();
+	// 	  jQuery('.block-search').focus();
+	// 		jQuery('.cms-index-index .form-create-account').hide();
+	// 		jQuery('.cms-index-index .block-customer-login').hide();
+	// 		if(xclas=="search-icon active")
+	// 		{
+	// 			//console.log("change");
+	// 			jQuery('#topSearch').attr('class',"search-icon");
+	// 		}else {
+	// 			jQuery('#topSearch').attr('class',"search-icon active");
+	// 		}
+	//
+	// 	});
+		// jQuery("#block_search").on('click',function(){
+		// 	jQuery(".block-search").hide();
+		// 		jQuery('#topSearch').removeClass('active');
+		//
+		// });
+	//
+	// 	jQuery('.top_right_minicart_link,.counter,.cart-icon').click(function(){
+	// 				var xclas= jQuery('a.cart-icon').attr('class');
+	// 		jQuery('.block-search').hide();
+	// 		jQuery('.cms-index-index .form-create-account').hide();
+	// 		jQuery('.cms-index-index .block-customer-login').hide();
+	// 		if(xclas=="cart-icon active")
+	// 		{
+	// 			//console.log("change");
+	// 			jQuery('a.cart-icon').attr('class',"cart-icon");
+	// 		}else {
+	// 			jQuery('a.cart-icon').attr('class',"cart-icon active");
+	// 		}
+	//
+	//
+	// 	});
+	//
+		jQuery('#login-pop-RG-btn').click(function(){
+				// alert("ok");
+			jQuery('#login-pop-RG').show();
+			jQuery('#register-pop-RG').hide();
+
+		});
+
+		jQuery('#register-pop-RG-btn').click(function(){
+			// alert("ok");
+			jQuery('#login-pop-RG').hide();
+			jQuery('#register-pop-RG').show();
+
+		});
+		jQuery('.dropdown span,.dropdown a').click(function(){
+			var current= jQuery(this);
+
+				jQuery('.dropdown').each(function(index, el) {
+					if(current!=jQuery(this) && current!=jQuery('.dropdown-menu') && current!=jQuery('.block-search'))
+					{
+
+					jQuery('body').click();
+			}
+				});
+		});
+
+
+
+		// jQuery(document).on('click',"#cart_close",function(){
+		// 	jQuery('#minicart-content-wrapper').parent().parent().hide();
+		//   jQuery('a.cart-icon.menu_cart').removeClass('active');
+		// });
+
+		// jQuery('#register_close').click(function(){
+		// 	jQuery('.page-header .form-create-account').hide();
+		// 		jQuery('#login-popup').removeClass('active');
+		// });
+
+// 		jQuery(document).click(function (e) {
+//
+//     if (!jQuery(e.target).is("#login-pop-RG") && !jQuery(e.target).is("#login-popup")) {
+// 		//alert("ok");
+//         if (jQuery('#login-pop-RG').is(':visible')) {
+//             jQuery('#login-pop-RG').hide();
+//         }
+//     }
+// 		// if (!jQuery(e.target).is(".page-header .form-create-account")) {
+// 		// 		if (jQuery('.page-header .form-create-account').is(':visible')) {
+// 		// 				jQuery('.page-header .form-create-account').hide();
+// 		// 		}
+// 		// }
+// 		    // if (!jQuery(e.target).is(".block-search")) {
+// 		    //     if (jQuery('.block-search').is(':visible')) {
+// 		    //         jQuery('.block-search').hide();
+// 		    //     }
+// 		    // }
+// });
+	// 	jQuery('#login_close').click(function(){
+	// 		var xclas= jQuery('#login-popup').attr('class');
+	// 		jQuery('.page-header .block-customer-login').hide();
+	// 				jQuery('#login-popup').attr('class',"user-icon");
+	// 	});
+	//
+	// 	jQuery('#block_search').click(function(){
+	// 			var xclas= jQuery('#topSearch').attr('class');
+	// 		jQuery('.page-header .block-search').hide();
+	// 		console.log("i'm here");
+	// 			jQuery('#topSearch').attr('class',"search-icon");
+	// 	});
+	// 	jQuery('#switcher-language-trigger').click(function(){
+	// 		jQuery('.block-search').hide();
+	// 		jQuery('.cms-index-index .form-create-account').hide();
+	// 		jQuery('.cms-index-index .block-customer-login').hide();
+	// 	});
+	//
+	// 	jQuery('#span_qty').click(function()
+	// {
+	// console.log("hello");
+	// })
+
+	});
+
+   </script>

@@ -1,0 +1,141 @@
+<?php
+/**
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/** @var $block \Manadev\LayeredNavigation\Blocks\FilterRenderer */
+/** @var $data array */
+/** @var $engineFilter \Manadev\LayeredNavigation\EngineFilter */
+/** @var $filter \Manadev\LayeredNavigation\Models\Filter */
+?>
+<div class="swatch-attribute swatch-layered <?php echo $filter->getData('attribute_code') ?>"
+     attribute-code="<?php echo $filter->getData('attribute_code') ?>"
+     attribute-id="<?php echo $filter->getData('attribute_id') ?>"
+     data-mage-init='{ "Manadev_LayeredNavigation/js/SwatchFilterView": {} }'>
+    <div class="swatch-attribute-options clearfix">
+	 <ul>
+        <?php foreach ($data as $item): ?>
+            <?php if ($item['is_selected']) : ?>
+              <!-- <li><a href="<?php echo $block->getRemoveItemUrl($engineFilter, $item) ?>"<?php echo $block->getRemoveItemLinkAttributes($engineFilter, $item) ?>aa class="swatch-option-link-layered mana-selected"> -->
+
+               <li><a href="javascript:void(0)" link="<?php echo $block->getRemoveItemUrl($engineFilter, $item) ?>"<?php echo $block->getRemoveItemLinkAttributes($engineFilter, $item) ?>aa class="swatch-option-link-layered mana-selected">
+            <?php elseif ($item['count'] > 0) : ?>
+
+              <!-- <li><a href="<?php echo $block->getAddItemUrl($engineFilter, $item) ?>"<?php echo $block->getAddItemLinkAttributes($engineFilter, $item) ?>bb class="swatch-option-link-layered"> -->
+               <li><a href="javascript:void(0)" link="<?php echo $block->getAddItemUrl($engineFilter, $item) ?>" <?php echo $block->getAddItemLinkAttributes($engineFilter, $item) ?> class="swatch-option-link-layered">
+            <?php else : ?>
+                <li><span class="swatch-option-link-layered">
+            <?php endif; ?>
+                <?php $item['swatch_type']=5; ?>
+                <?php if (isset($item['swatch_type'])) : ?>
+                    <?php $cssClass = ($item['is_selected'] ? 'selected' : '') . ' ' . ($item['count'] == 0 ? 'disabled' : ''); ?>
+                    <?php switch ($item['swatch_type']) {
+                        case '3': ?>
+                            <div class="swatch-option e <?php echo $cssClass ?>"
+                                 option-type="3"
+                                 option-id="<?php echo $item['value'] ?>"
+                                 option-label="<?php echo $item['label'] ?>"
+                                 option-tooltip-thumb=""
+                                 option-tooltip-value=""
+                                ></div>
+                            <?php    break;
+                        case '2':
+                            ?>
+                            <?php $swatchThumbPath = $block->getSwatchPath('swatch_thumb', $item['swatch']); ?>
+                            <?php $swatchImagePath = $block->getSwatchPath('swatch_image', $item['swatch']); ?>
+                            <div class="swatch-option image <?php echo $cssClass ?>"
+                                 option-type="2"
+                                 option-id="<?php echo $item['value'] ?>"
+                                 option-label="<?php echo $item['label'] ?>"
+                                 option-tooltip-thumb="<?php echo $swatchThumbPath ?>"
+                                 option-tooltip-value=""
+                                 style="background: url(<?php echo $swatchImagePath ?>) no-repeat center; background-size: initial;"></div>
+                            <?php    break;
+                        case '1':
+                            ?>
+                            <div class="swatch-option color q <?php echo $cssClass ?>"
+                                 option-type="1"
+                                 option-id="<?php echo $item['value'] ?>"
+                                 option-label="<?php echo $item['label'] ?>"
+                                 option-tooltip-thumb=""
+                                 option-tooltip-value="<?php echo $item['swatch'] ?>"
+                                 style="background: <?php echo $item['swatch'] ?> no-repeat center; background-size: initial;"></div>
+                            <?php    break;
+                        case '0':
+                        default:
+                            ?>
+                                <div id="color_swatch" class="swatch-option color w <?php echo $cssClass ?> effect_RG"
+                                     option-type="0"
+                                     option-label="<?php echo $item['label'] ?>"
+                                     option-id="<?php echo $item['value'] ?>"
+                                    ><?php echo $item['label'] ?></div>
+                            <?php    break;
+                    } ?>
+                <?php endif; ?>
+            <?php if ($item['is_selected']) : ?>
+                </a></li>
+            <?php elseif ($item['count'] > 0) : ?>
+                </a></li>
+            <?php else : ?>
+                </span></li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+		</ul>
+    </div>
+</div>
+
+<script>
+    require(["jquery", "jquery/ui", "Magento_Swatches/js/swatch-renderer"], function ($) {
+
+        $('.swatch-layered.<?php echo $filter->getData('attribute_code') ?>')
+            .find('[option-type="1"], [option-type="2"], [option-type="0"], [option-type="3"]')
+            .SwatchRendererTooltip();
+        $(document).on('click', '#mana_submit_RG', function(event) {
+          event.preventDefault();
+          /* Act on the event */
+          //alert("ok");
+          var url=window.location.href;
+          var res=check_parameters(url);
+          var base_url=url.split("?")[0];
+        //  alert(base_url);
+          console.log(res);
+          var new_color="";
+          var new_finish="";
+          $(".swatch-option.color.selected").each(function(index, el) {
+            //alert($(this).attr("option-id"));
+            if(new_color==""){
+              new_color+=$(this).attr("option-id");
+            }else{
+              new_color+="_"+$(this).attr("option-id");
+            }
+          });
+
+          $(".mana-selected a").each(function(index, el) {
+            var value_finish=$(this).attr("data-attr");
+            //alert(value_finish)
+            if(new_finish==""){
+              new_finish+=value_finish;
+            }else{
+              new_finish+="_"+value_finish;
+            }
+          });
+          var final_url="";
+          if(new_color==""){final_url=base_url+"?finish_nail_varnish="+new_finish;}
+          if(new_finish==""){final_url=base_url+"?color="+new_color;}
+          if(new_color!="" && new_finish!=""){final_url=base_url+"?color="+new_color+"&finish_nail_varnish="+new_finish;}
+
+        //  alert(final_url)
+          window.location=final_url;
+        });
+
+        function check_parameters(url){
+          var color_check=url.indexOf('?color=');
+          var finish_nail_varnish_check=url.indexOf('&finish_nail_varnish=');
+          if(color_check>=0 && finish_nail_varnish_check>=0)
+          {
+            return url.split("?color=")[1].split('&finish_nail_varnish=');
+          }
+        }
+
+    });
+</script>

@@ -1,0 +1,86 @@
+<?php $_product = $block->getProduct(); ?>
+<div class="panel-group detail-panel" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-primary">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a class="collapsed tog_RG" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <?= __("Einzelheiten")?> <i class="fa fa-angle-down"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                <?php echo $this->helper('Magento\Catalog\Helper\Output')->productAttribute($block->getProduct(), $block->getProduct()->getDescription(), 'description'); ?>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+                <a class="collapsed tog_RG" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <?= __("Anwendung")?> <i class="fa fa-angle-down"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+                <?php
+                    $_product = $block->getProduct();
+                    $myattribute = $_product->getResource()->getAttribute('application')->getFrontend()->getValue($_product);
+                    echo $myattribute;
+                ?>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                <a class="collapsed tog_RG" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <?= __("Wieso wir es lieben");?> <i class="fa fa-angle-down"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+                <?php
+                    $_product = $block->getProduct();
+                    $myattribute = $_product->getResource()->getAttribute('whyweloveit')->getFrontend()->getValue($_product);
+                    echo $myattribute;
+                ?>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+                <a class="collapsed tog_RG" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                   <?= __("Inhaltsstoffe");?>  <i class="fa fa-angle-down"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+            <div class="panel-body">
+                <?php
+                    $_product = $block->getProduct();
+                    $myattribute = $_product->getResource()->getAttribute('ingredients')->getFrontend()->getValue($_product);
+                    echo $myattribute;
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+jQuery(document).ready(function() {
+  jQuery(document).on('click', '.tog_RG', function(event) {
+    event.preventDefault();
+    /* Act on the event */
+  //  alert("ok");
+    if(jQuery(this).find('.fa').attr('class')=="fa fa-angle-down"){
+      jQuery(this).find('.fa').attr('class',"fa fa-angle-up")
+    }else {
+      jQuery(this).find('.fa').attr('class',"fa fa-angle-down")
+    }
+
+  });
+});
+</script>

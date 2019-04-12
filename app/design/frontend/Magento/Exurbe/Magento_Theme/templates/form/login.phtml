@@ -1,0 +1,80 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Form\Login $block */
+?>
+<?php
+/**
+ * Customer login form template
+ *
+ * @see \Magento\Customer\Block\Form\Login
+ * @var $block \Magento\Customer\Block\Form\Login
+ */
+$objectManagerlogin = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManagerlogin->get('Magento\Customer\Model\Session');
+$baseurl = $objectManagerlogin->get('Magento\Store\Model\StoreManagerInterface')->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_WEB);
+
+?>
+
+<div class="block block-customer-login" style="display:none;" magento_theme>
+	<div class="my_account">
+
+
+		<?php
+			if($customerSession->isLoggedIn()) {
+			 ?>
+			<span class="name">Hello <?php echo $customerSession->getCustomer()->getName(); ?></span><br />
+			<span class="email"> <?php echo $customerSession->getCustomer()->getEmail(); ?></span><br />
+			<a href="<?php echo $baseurl .'customer/account/'; ?>">
+						<?php echo __('My Account') ?>
+					</a>
+			 <a href="<?php echo $baseurl .'customer/account/logout'; ?>">  <?php echo __('Logout') ?></a>
+
+			<?php
+			}else {
+		?>
+	</div>
+    <div class="block-title">
+			<span id="login_close" class="login_close" style="float:right;cursor:pointer;"></span>
+        <strong id="block-customer-login-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */ echo __('Bestehendes Kundenkonto') ?></strong>
+    </div>
+
+    <div class="block-content" aria-labelledby="block-customer-login-heading">
+        <form class="form form-login"
+              action="<?php /* @escapeNotVerified */ echo $block->getPostActionUrl() ?>"
+              method="post"
+              id="login-form"
+              data-mage-init='{"validation":{}}'>
+            <?php echo $block->getBlockHtml('formkey'); ?>
+            <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
+                <!--<div class="field note"><?php /* @escapeNotVerified */ echo __('If you have an account, sign in with your email address.') ?></div>-->
+                <div class="field email required">
+
+                    <div class="control">
+                        <input name="login[username]" value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) :?> autocomplete="off"<?php endif; ?> id="email" type="email" class="input-text" title="<?php /* @escapeNotVerified */ echo __('Email') ?>" data-validate="{required:true, 'validate-email':true}" placeholder="E-Mail-Adresse">
+						 <label class="label" for="email"><span><?php /* @escapeNotVerified */ echo __('E-Mail-Adresse') ?></span></label>
+                    </div>
+                </div>
+                <div class="field password required">
+
+                    <div class="control">
+                        <input name="login[password]" type="password" <?php if ($block->isAutocompleteDisabled()) :?> autocomplete="off"<?php endif; ?> class="input-text" id="pass" title="<?php /* @escapeNotVerified */ echo __('Passwort') ?>" data-validate="{required:true, 'validate-password':true}" placeholder="Passwort">
+						 <label for="pass" class="label"><span><?php /* @escapeNotVerified */ echo __('Passwort') ?></span></label>
+                    </div>
+                </div>
+                <?php echo $block->getChildHtml('form_additional_info'); ?>
+                <div class="actions-toolbar">
+                    <div class="primary"><a class="action remind" href="<?php /* @escapeNotVerified */ echo $block->getForgotPasswordUrl() ?>"><span><?php /* @escapeNotVerified */ echo __('Passwort vergessen?') ?></span></a></div>
+                    <div class="secondary"><button type="submit" class="action login primary" name="send" id="send2"><span><?php /* @escapeNotVerified */ echo __('ANMELDEN') ?></span></button></div>
+                </div>
+            </fieldset>
+        </form>
+		<h3 class="loginPopupRegiter"><a href="javascript:void(0)">Noch keinen exurbe Account?</a></h3>
+    </div>
+</div>
+<?php } ?>

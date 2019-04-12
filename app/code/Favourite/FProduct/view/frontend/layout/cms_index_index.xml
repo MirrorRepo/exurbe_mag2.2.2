@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * cms_index_index.xml
+ *
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ * 
+ * This file only is displayed on the homepage of magento
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+
+    	  <block class="Favourite\FProduct\Block\FProduct" name="favourite" template="fproduct.phtml" />
+        <!-- Insert your blocks just for the homepage here, e.g. -->
+<!--         <container htmlTag="section" htmlClass="widget block block-static-block newsletter-block">
+            <block class="Magento\Cms\Block\Widget\Block" name="newsletter" template="Magento_Theme::html/subscribe.phtml">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">newsletter</argument>
+                </arguments>
+            </block>
+        </container>
+        <container htmlTag="section" htmlClass="widget block block-static-block view-catalogue-block">
+            <block class="Magento\Cms\Block\Widget\Block" name="view_catalogue" template="Magento_Theme::html/view-catalogue.phtml">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">view_catalogue</argument>
+                </arguments>
+            </block>
+        </container> -->
+
+     
+
+    </body>
+</page>

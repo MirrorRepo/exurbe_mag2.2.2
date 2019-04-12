@@ -1,0 +1,360 @@
+A coupon code has been used. You cannot apply gift codes with the coupon to get discount.,Um código promocional foi usado. Você não pode aplicar códigos de presente com o cupom para obter um desconto.
+You need to add your friend\'s address as the shipping address. We will send this gift card to that address.,Você deve adicionar o endereço do seu amigo como o endereço de entrega. Enviaremos este cartão-presente para este endereço.
+The gift code(s) has been used. You cannot apply a coupon code with gift codes to get discount.,O código de presente foi usado. Você não pode aplicar um código de cupom com códigos de presente para obter um desconto.
+Active when order is complete,Ativo no final do pedido
+There is not the Gift card template available.,O modelo de cartão de presente não está disponível.
+You didn\'t assign the Gift Card template to this product.,Você não atribuiu o modelo de cartão-presente a este produto.
+Please enter Gift Card information.,"Por favor, insira as informações do cartão de presente."
+Please specify product\'s required option(s).,"Por favor, especifique as opções de produto requeridas."
+Create,Crio
+Update,Atualizar
+Mass update,Atualização em massa
+Spent on order,Passado por encomenda
+Refund,Reembolso
+Redeem,Resgatar
+Cancel,Cancelar
+There is no available gift card history action,Não há nenhuma ação disponível no histórico do cartão de presente
+Pending,esperando
+Active,ativo
+Disabled,Desativado
+Used,em uso
+Expired,Expirado
+Refunded,devolveu
+Not Send,Não enviado
+Sent via Email,Enviado por email
+Send via Post Office,Enviar pelo correio
+"Gift Card with id ""%1"" does not exist.","O vale de oferta com ID ""% 1"" não existe."
+Created by Api user,Criado pelo usuário Api
+Your Gift Card credit balance must be greater than 0.,O saldo de crédito do seu cartão-presente deve ser maior que 0.
+Invalid pattern,Razão inválida
+Data_invalid,Data_invalid
+"Gift Card Template with id ""%1"" does not exist.","O modelo de cartão de presente com o ID ""% 1"" não existe."
+Gift Card Code,Código do vale-presente
+-- Please Select --,- Por favor escolha -
+Fixed value,Valor fixo
+Range of values,Faixa de valores
+Dropdown values,Valores suspensos
+Code 128,Código 128
+QR code,Código QR
+Physical,Physical
+Virtual,Virtual
+Combine,Combine
+Enable,Ativar
+Disable,desativar
+Gift Card value,Valor do vale de oferta
+Gift Card template,Modelo de cartão de presente
+Sender name,Nome do remetente
+Recipient name,nome do destinatário
+Recipient email address,Endereço de email do destinatário
+Ship to recipient,Enviar para o destinatário
+Recipient address,Endereço de entrega
+Custom message,Mensagem personalizada
+Day to send,Dia de envio
+Time zone,Fuso horário
+Same as Gift Card Value,Idêntico ao valor do cartão-presente
+Fixed Price,Preço fixo
+Percent of Gift Card value,Porcentagem do valor do cartão-presente
+Left,Esquerda
+Top,topo
+Center,Centro
+Enabled,ativado
+Gift code is existed!,O código de presente existe!
+Exceeded maximum retries to find available random gift card code!,Número máximo de tentativas excedidas para encontrar o código do vale presente aleatório disponível!
+Message max length cannot be greater than 240 characters.,O comprimento máximo da mensagem não pode exceder 240 caracteres.
+The gift code pattern is invalid! It was changed to the default gift code pattern.,O modelo de código de presente é inválido! Ele foi alterado para o modelo de código de presente padrão.
+Gift Card credit,Crédito do vale-presente
+Gift Card,Cartão Presente
+Gift Card credit:,Crédito do vale de oferta:
+Gift Card (%1):,Cartão de presente (% 1):
+Default Template 1,Modelo padrão 1
+Default Template 2,Modelo Padrão 2
+Default Template 3,Modelo Padrão 3
+"Seperated by comma, e.g. 10,20,30","Separado por uma vírgula, por exemplo, 10,20,30"
+Gift Card price is the same as Gift Card value by default.,O preço do cartão-presente é o mesmo que o valor do cartão-presente padrão.
+Back,Retorna
+The Gift Card email has been failed to send.,O envio do email do vale de oferta falhou.
+The Gift Card email has been sent successfully.,O email do vale de oferta foi enviado com sucesso.
+The Gift Card email cannot be sent to your friend!,O e-mail com cartão de presente não pode ser enviado ao seu amigo!
+The maximum number of times to enter gift codes is %1!,O número máximo de vezes para inserir os códigos de presente é% 1!
+"Gift card ""%1"" is invalid.","O vale de oferta ""% 1"" é inválido."
+You have %1 time(s) remaining to re-enter Gift Card code.,Você tem% 1 hora (s) para reinserir o código do vale-presente.
+"Gift code ""%1"" has usage conditions, you cannot redeem it to Gift Card credit","O código de presente ""% 1"" tem condições de uso. Não é possível resgatá-lo para crédito de vale-presente"
+The gift code usage has exceeded the number of users allowed.,O uso do código de presente excedeu o número de usuários permitidos.
+%1 - The current balance of this gift code is 0.,% 1 - O saldo atual deste código de presente é 0.
+"Gift code ""%1"" is not avaliable","O código de presente ""% 1"" não está disponível"
+Redeem to Gift Card credit balance,Resgatar para saldo de crédito do vale-presente
+Redeemed by %1,Resgatado por% 1
+"Gift card ""%1"" was successfully redeemed","O vale de oferta ""% 1"" foi resgatado com sucesso"
+Image Saving Error!,Erro de salvamento de imagem!
+Check Gift Card Balance,Verificar saldo do vale-presente
+Gift card was successfully removed,O vale de oferta foi removido com sucesso
+"Gift code ""%1"" is invalid.","O código de presente ""% 1"" é inválido."
+This gift code has already existed in your list.,Este código de presente já existe na sua lista.
+The gift code has been added to your list successfully.,O código de presente foi adicionado à sua lista com sucesso.
+Gift Code,Código de presente
+Manage Gift Codes,Gerenciar códigos de presente
+Customer email is not valid,O email do cliente não é válido
+Recipient email is not valid,O email do destinatário não é válido
+Updated by %1,Atualizado por% 1
+Created by %1,Criado por% 1
+Gift Code was successfully saved,O código de presente foi salvo com sucesso
+and %1 email(s) were sent.,e% 1 email (s) foram enviados.
+There is no email address to send.,Não há endereço de email para enviar.
+"Gift card is %1 should not send an email, %2",O vale de oferta é% 1 não deve enviar um email% 2
+ view config select status of gift card when sending e-mail to friend, ver config selecione o status do cartão de presente ao enviar e-mail para um amigo
+Something went wrong while saving the gift code.,Algo deu errado ao salvar o código de presente.
+Mass status updated by %1,Status de massa atualizado por% 1
+A total of %1 record(s) have been changed status.,Um total de% 1 registro (s) foi alterado.
+Please choose a CSV file,"Por favor, escolha um arquivo CSV"
+Imported by %1,Importado por% 1
+Gift code %1 already existed,O código de presente% 1 já existia
+Imported total %1 Gift Code(s),Total importado% 1 Gift Code (s)
+No gift code imported,Nenhum código de presente importado
+Please check your import file content again.,"Por favor, verifique o conteúdo do seu arquivo de importação novamente."
+Total of %1 Gift Code with %2 email(s) were successfully sent.,Total de% 1 Código de Presente com% 2 email (s) enviados com sucesso.
+Gift Code Manager,Gerenciador de código de presente
+Import Gift Code,Importar código de presente
+Gift Code was successfully deleted,O código de presente foi excluído com sucesso
+A total of %1 record(s) have been deleted.,Um total de% 1 registro (s) foram excluídos.
+Print Gift Code,Imprimir o código de presente
+Print Gift Codes,Imprimir códigos de presente
+This gift codes no longer exists.,Esses códigos de presentes não existem mais.
+Edit Gift Code,Editar o código de presente
+New Gift Code,Novo código de presente
+Gift Code History,História do código de presente
+Manage History,Gerenciar Histórico
+Manage Gift Card Template,Gerenciar modelo de cartão de presente
+This gift card template no longer exists.,Este modelo de vale-presente não existe mais.
+You saved the gift card template.,Você salvou o modelo de cartão de presente.
+Something went wrong while saving the gift card template.,Algo deu errado ao salvar o modelo de cartão de presente.
+This template no longer exists.,Este modelo não existe mais.
+You deleted the gift card template.,Você excluiu o modelo de cartão-presente.
+We can\'t find a gift card template to delete.,Não é possível encontrar um modelo de cartão-presente para excluir.
+Edit Template,Editar modelo
+New Template,Novo modelo
+Gift Templates,Modelos de presente
+Template,Modelo
+Gift Code Pattern,Padrão de código de presente
+The pattern has been duplicated successfully.,O padrão foi duplicado com sucesso.
+Each template only generate one time,Cada modelo gera apenas uma vez
+The pattern has been generated successfully.,O padrão foi gerado com sucesso.
+The pattern has been saved successfully.,O padrão foi salvo com sucesso.
+Gift Code Pattern was successfully deleted,O padrão de código de presente foi excluído com sucesso
+This gift code pattern no longer exists.,Este padrão de código de presente não existe mais.
+Edit Gift Code Pattern,Editar padrão de código de presente
+New Gift Code Pattern,Novo padrão de código de presente
+"Edit Gift Code Pattern ""%1","Editar padrão de código de presente ""% 1"
+Gift Card Product Manager,Gerente de produtos de cartão de presente
+A total of %1 record(s) have been updated.,Um total de% 1 registro (s) foi atualizado.
+Something went wrong while updating the product(s) status.,Algo deu errado ao atualizar o status do produto (s).
+Gift Card (%1),Gift Card (%1)
+Refund to your gift card code,Reembolso para o código do seu cartão-presente
+You need to fill in your friend's address as the shipping address on checkout page. We will send this Gift Card to that address after at least %1 day(s).,"Você precisa preencher o endereço do seu amigo como o endereço de entrega na página de checkout. Enviaremos este vale-presente para esse endereço após, pelo menos,% 1 dia (s)."
+You need to fill in your friend's address as the shipping address on checkout page. We will send this Gift Card to that address.,Você precisa preencher o endereço do seu amigo como o endereço de entrega na página de checkout. Enviaremos este cartão-presente para esse endereço.
+Actions,Ações
+Allow using Gift Card only if products in cart meet the following conditions (leave blank for all products),Permitir usar o cartão-presente somente se os produtos no carrinho atenderem às seguintes condições (deixe em branco para todos os produtos)
+Apply To,Aplicar para
+Conditions,Condições
+Description,Descrição
+Describe conditions applied to shopping cart when using this gift code,Descrever as condições aplicadas ao carrinho de compras ao usar este código de presente
+Allow using Gift Card only if the following shopping cart conditions are met (leave blank for all shopping carts),Permitir usar o cartão-presente somente se as seguintes condições do carrinho de compras forem atendidas (deixe em branco para todos os carrinhos de compras)
+ID,identidade
+Action,Açao
+Balance Change,Mudança de Saldo
+Order,Ordem
+Current Balance,Saldo Atual
+Created Time,Tempo criado
+Gift Card History,Histórico do cartão de presente
+Reset,Restabelecer
+Save and Continue Edit,Salvar e Continuar Editar
+Save,Salve 
+Delete,Excluir
+"Images (.gif, .jpg, .png)","Imagens (.gif, .jpg, .png)"
+"We're sorry, an error has occurred while generating this gift card template. ","Lamentamos, ocorreu um erro ao gerar este modelo de cartão-presente."
+Preview,Visualizar
+Import,Importar
+Import and Print,Importar e Imprimir
+Save & Send Email,Salvar e enviar e-mail
+Save & Continue Edit,Salvar e Continuar Editar
+Print,Impressão
+Import File,Importar arquivo
+Download Sample CSV File,Download do arquivo CSV de amostra
+Refund to customer gift card code used to check out,Reembolso para o código do cartão-presente do cliente usado para o check-out
+Duplicate,Duplicado
+Save and Generate,Salvar e gerar
+Add Gift Card Product,Adicionar produto de vale-presente
+History,História
+Balance,Equilibrar
+Date,Encontro
+Comment,Comente
+N/A,N / D
+View Order,Visualizar pedido
+Email to Friend,E-mail para amigo
+Status,Status
+Added Date,Data adicionada
+Expired Date,Data expirada
+Permanent,Permanente
+This is your gift to give for %1 (%2),Este é o seu presente para dar para% 1 (% 2)
+Check Shipping,Verifique o envio
+View Shipment,Visualizar remessa
+Track the shipment,Acompanhe o envio
+Tracking Number(s):,Rastreando números):
+Email to a Friend,E-mail para um amigo
+Name,Nome
+Email Address,Endereço de e-mail
+Message,mensagem
+Characters Remaining: ,Caracteres restantes:
+Send to Friend,Envie a um amigo
+Availability,Disponibilidade
+In stock,Em estoque
+Out of stock,Fora de estoque
+View usage conditions of this Gift Card,Ver as condições de uso deste cartão-presente
+Item,Item
+Price,Preço
+See price before order confirmation.,Veja o preço antes da confirmação do pedido.
+What's this?,O que é isso?
+Qty,Qtd
+Subtotal,Subtotal
+Check Gift card information,Verifique as informações do cartão-presente
+Add a Gift Card,Adicionar um vale-presente
+Enter Gift Card Code,Introduza o código do vale de oferta
+Add To Your List,Adicione à sua lista
+Date is set in timezone,A data está definida no fuso horário
+Search,Procurar
+Search gift card...,Pesquisar cartão de presente ...
+Gift Codes,Códigos de presentes
+View,Visão
+Email,O email
+Remove,Remover
+Are you sure?,Você tem certeza?
+There are no gift codes matching this selection.,Não há códigos de presente que correspondam a esta seleção. 
+Special Price,Preço especial
+Regular Price,Preço regular
+From,De
+To,Para
+Gift Cards cannot be used to purchase Gift Card products,Os vales de oferta não podem ser usados ​​para comprar produtos de cartão-presente
+Use Gift Card To Checkout,Use o cartão presente para o checkout
+Apply,Aplique
+Gift Card Amount,Valor do vale-presente
+Customer's Gift Card Code(s),Código (s) de cartão-presente do cliente
+Customer Gift Card Code,Código do cartão de presente do cliente
+New Gift Card Code,Novo código de vale-presente
+Gift Card Products,Produtos de cartão de presente
+"Gift Card value: <span class=""regular-price"">%1</span>","Valor do vale de oferta: <span class = ""regular-price"">% 1 </ span>"
+Select a template ,Selecione um modelo
+Yes,sim
+Send through post office,Enviar pelo correio
+Send Gift Card to friend,Envie um vale-presente para um amigo
+Sender name (optional):,Nome do remetente (opcional):
+Recipient name: ,Nome do Destinatário:
+Recipient email address: ,Endereço de email do destinatário:
+Send-to-purchaser email when recipient receives Gift Card,Envio de e-mail para o comprador quando o destinatário recebe um cartão-presente
+Time Zone,Fuso horário
+Refund to customer\'s Gift Card credit balance,Reembolso ao saldo de crédito do vale-presente do cliente
+Browse to find or drag image here,Navegue para encontrar ou arrastar a imagem aqui
+Delete image,Excluir imagem
+Hidden,Escondido
+Gift Cart Preview,Pré-visualização do carrinho de oferta
+As low as,Tão baixo quanto
+Refunded by %1,Reembolsado por% 1
+Refund order %1,Pedido de reembolso% 1
+Canceled by %1,Cancelado por% 1
+Cancel order %1,Cancelar pedido% 1
+Gift card %1 is not exists,O vale de oferta% 1 não existe
+The email address of Gift Card recipient does not exist.,O endereço de e-mail do destinatário do cartão-presente não existe.
+Email of Gift card Purchaser does not exist.,E-mail do cartão-presente O comprador não existe.
+Invalid data,Dados inválidos
+The maximum number of times to enter the invalid gift codes is %1!,O número máximo de vezes para inserir os códigos de presente inválidos é% 1!
+Invalid gift code. ,Código de presente inválido.
+%1 Order %2,% 1 pedido% 2
+%1 by %2,% 1 por% 2
+Write message here...,Escreva uma mensagem aqui ...
+Converting to cash is not allowed. You can redeem this gift card when checkout at your online store.,A conversão para dinheiro não é permitida. Você pode resgatar este cartão-presente quando fizer o pagamento em sua loja on-line.
+"Gift Card ""%1"" does not exist.","O vale de oferta ""% 1"" não existe."
+This gift code limits the number of users,Este código de presente limita o número de usuários
+"Gift Card ""%1"" has been sent to the customer\'s friend.","O vale de oferta ""% 1"" foi enviado para o amigo do cliente."
+"Gift Card ""%1"" has been applied successfully.","O vale de oferta ""% 1"" foi aplicado com sucesso."
+You can’t use this gift code since its conditions haven’t been met.,"Você não pode usar este código de presente, pois suas condições não foram cumpridas."
+"Gift Card ""%1"" is no longer available to use.","O vale de oferta ""% 1"" já não está disponível para utilização."
+Gift Card has been updated successfully.,Gift Card foi atualizado com sucesso.
+"Gift card ""%1"" has been removed successfully.","O vale de oferta ""% 1"" foi removido com sucesso."
+"Gift card ""%1"" not found!","Cartão-presente ""% 1"" não encontrado!"
+Your Gift Card has been removed successfully.,Seu cartão-presente foi removido com sucesso.
+Used by Guest,Usado pelo convidado
+Used by %1 %1,Usado por% 1% 1
+Spent on order %1,Gastado no pedido% 1
+Refund from order %1,Reembolso do pedido% 1
+Created for order %1,Criado para o pedido% 1
+Created by customer %1 %2,Criado pelo cliente% 1% 2
+Use custom image,Use imagem personalizada
+Sender Name,Nome do remetente
+Giftcard Template,Template Giftcard
+Recipient email,E-mail do destinatário
+Day To Send,Dia para enviar
+Email To Sender,E-mail para remetente
+Amount,Montante
+Giftcard Image,Giftcard Image
+Use Custom Image,Use a imagem personalizada
+Notify when the recipient receives Gift Card.,Notifique quando o destinatário receber o cartão-presente.
+Edit,Editar
+Gift Price Setting,Ajuste de preço de presente
+Customer\'s Image,Imagem do cliente
+Template image,Imagem do modelo
+Transaction History,Histórico de Transações
+Generated Gift Codes,Códigos de presentes gerados
+Enter your gift code,Digite seu código de presente
+Gift card code,Código do vale-presente
+Result,Resultado
+Balance,Equilibrar
+Status,Status
+Expired at,Expirado em
+You need to fill in your friend \'s address as the shipping address on checkout page. We will send this Gift Card to that address.,Você precisa preencher o endereço do seu amigo como o endereço de entrega na página de checkout. Enviaremos este cartão-presente para esse endereço.
+You need to fill in your friend \'s address as the shipping address on checkout page. We will send this Gift Card to that address after at least,Você precisa preencher o endereço do seu amigo como o endereço de entrega na página de checkout. Enviaremos este Gift Card para esse endereço depois de pelo menos
+Custom message,Mensagem personalizada
+Characters Remaining:,Caracteres restantes:
+Get notification email when your friend receives Gift Card,Receba um e-mail de notificação quando seu amigo receber um cartão-presente
+Day to send,Dia para enviar
+Select time zone,Selecione o fuso horário
+Preview template,Modelo de pré-visualização
+Preview Gift Card,Preview Gift Card
+Select a template,Selecione um modelo 
+Or upload your photo,Ou envie sua foto
+Recommended size:,Tamanho recomendado:
+"Support gif, jpg, png files. Max file supported:","Suporte gif, jpg, png. Arquivo máximo suportado:"
+Gift Card value: ,Valor do vale de oferta:
+Select value,Selecione o valor
+Enter value,Insira o valor
+Use Gift Card to check out,Use o cartão-presente para conferir
+Gift Card Amount,Valor do vale-presente
+Remove,Remover
+Enter your gift code,Digite seu código de presente
+or select an existing Gift Card code,ou selecione um código de vale-presente existente
+-- Please Select --,-- Por favor selecione --
+Please enter your code,Por favor digite seu código
+Please enter or chose your code,"Por favor, digite ou escolha seu código"
+"To check your Gift card information, please click ","Para verificar as informações do seu cartão-presente, clique em"
+"To manage your Gift Card, please click ","Para gerenciar seu cartão-presente, clique em"
+Apply,Aplique
+Add Gift Card,Adicionar vale-presente
+Gift Cards cannot be used to purchase Gift Card products,Os vales de oferta não podem ser usados ​​para comprar produtos de cartão-presente
+A gift card from,Um cartão de presente de
+Gift card refund from,Reembolso por cartão-presente de
+Your gift card at,Seu cartão de presente em
+Successfully send gift card to,Envie com sucesso o cartão-presente para
+We are glad to inform that,Temos o prazer de informar que
+has sent you a Gift Card from,enviou-lhe um cartão-presente de
+You can comfortably use the Gift Card(s) to purchase other products at,Você pode usar confortavelmente o (s) cartão (s) de presente para comprar outros
+or add it to your Gift Card list by clicking,ou adicione-o à sua lista de cartões-presente clicando em
+Print Gift Card,Imprimir cartão de presente
+Your Gift code,Seu código presente
+Your Gift code value,Valor do seu código de presente
+"If you have any questions on your Gift card, please feel free to contact us at","Se você tiver alguma dúvida sobre seu cartão-presente, sinta-se à vontade para entrar em contato conosco em"
+or by phone at,ou por telefone em
+We regret to inform you that,Lamentamos informar que
+has requested a refund for the Gift Card order at,solicitou um reembolso do pedido de cartão presente em
+"Hence, the Gift Card %code you received is no longer valid to purchase other products at our store","Assim, o código% do cartão-presente que você recebeu não é mais válido para comprar outros produtos em nossa loja"
+Hopefully we will have other opportunities to serve you in the future,Espero que tenhamos outras oportunidades para atendê-lo no futuro
+This email is to notify that you have successfully bought Gift Card(s) at,Este e-mail é para informar que você comprou com sucesso Gift Card (s) em
+You can use Gift Card(s) to purchase other products,Você pode usar Gift Card (s) para comprar outros produtos
+print now,imprimir agora
+Your friend has received the Gift Card you sent. You can continue purchasing other products,Seu amigo recebeu o cartão-presente que você enviou. Você pode continuar comprando outros produtos 

@@ -1,0 +1,224 @@
+<?php
+	$block = $this->getLayout()->createBlock('Favourite\FProduct\Block\FProduct');
+	$_helper = $this->helper('Magento\Catalog\Helper\Output');
+	$productCollection = $block->getProductCollection();
+	$blockObj= $block->getLayout()->createBlock('Favourite\FProduct\Block\CProduct');
+	//print_r($_blockData->getData());die;
+?><div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <!-- <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol> -->
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="<?php echo $this->getViewFileUrl('images/banner.jpg'); ?>" alt="" />
+        </div>
+        <div class="item">
+          <img src="<?php echo $this->getViewFileUrl('images/banner2.jpg'); ?>" alt="" />
+        </div>
+        <div class="item">
+          <img src="<?php echo $this->getViewFileUrl('images/banner3.jpg'); ?>" alt="" />
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <img src="<?php echo $this->getViewFileUrl('images/prev.png'); ?>" alt="" />
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <img src="<?php echo $this->getViewFileUrl('images/next.png'); ?>" alt="" />
+      </a>
+    </div>
+
+<!--  for mobile -->
+<div id="carousel-example-generic-mobile" class="carousel slide" data-ride="carousel">
+	<!-- Indicators -->
+	<!-- <ol class="carousel-indicators">
+		<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+		<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+		<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+	</ol> -->
+
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner" role="listbox">
+		<div class="item active">
+			<img src="<?php echo $this->getViewFileUrl('images/banner-mobile.jpg'); ?>" alt="" />
+		</div>
+		<div class="item">
+			<img src="<?php echo $this->getViewFileUrl('images/banner-mobile.jpg'); ?>" alt="" />
+		</div>
+		<div class="item">
+			<img src="<?php echo $this->getViewFileUrl('images/banner-mobile.jpg'); ?>" alt="" />
+		</div>
+	</div>
+
+	<!-- Controls -->
+	<a class="left carousel-control" href="#carousel-example-generic-mobile" role="button" data-slide="prev">
+		<img src="<?php echo $this->getViewFileUrl('images/prev.png'); ?>" alt="" />
+	</a>
+	<a class="right carousel-control" href="#carousel-example-generic-mobile" role="button" data-slide="next">
+		<img src="<?php echo $this->getViewFileUrl('images/next.png'); ?>" alt="" />
+	</a>
+</div>
+
+   <!-- title bar -->
+  <div class="color-powder">
+    <div class="custom-container">
+      <div class="row">
+        <div class="col-sm-12"><div class="vegan-free-blk"><img src="<?php echo $this->getViewFileUrl('images/titebar.jpg'); ?>" class="img-responsive" alt="" /><h3 class="heart-icon"><span></span></h2></div></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- powder color -->
+  <!-- <div class="color-powder">
+    <div class="custom-container">
+      <div class="row">
+        <div class="col-sm-6"><img src="<?php echo $this->getViewFileUrl('images/vegan.jpg'); ?>" class="img-responsive" alt="" /></div>
+        <div class="col-sm-6"><img src="<?php echo $this->getViewFileUrl('images/tierv.jpg'); ?>" class="img-responsive" alt="" /></div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- 4modals -->
+  <div class="color-powder">
+    <div class="custom-container">
+	 <?php	$url = $block->getStoreURL(); ?>
+	 <div class="row mobile-version">
+	   <ul>
+	   <li><a href="<?php echo $url.'nails.html'?>"><img src="<?php echo $this->getViewFileUrl('images/nails-mobile.jpg'); ?>" class="img-responsive" alt="" /></a></li>
+	   <li><a href="<?php echo $url.'face.html'?>"><img src="<?php echo $this->getViewFileUrl('images/face-mobile.jpg'); ?>" class="img-responsive" alt="" /></a></li>
+	   <li><a href="<?php echo $url.'lips.html'?>"><img src="<?php echo $this->getViewFileUrl('images/lips-mobile.jpg'); ?>" class="img-responsive" alt="" /></a></li>
+	   <li><a href="<?php echo $url.'augen.html'?>"><img src="<?php echo $this->getViewFileUrl('images/eye-mobile.jpg'); ?>" class="img-responsive" alt="" /></a></li>
+	   </ul>
+
+	  </div>
+
+      <div class="row desktop-version">
+        <div class="col-md-8 wi75">
+          <ul class="imglist">
+          <li><a href="<?php echo $url.'face.html'?>"><img src="<?php echo $this->getViewFileUrl('images/face.jpg'); ?>" class="img-responsive" alt="" /></a></li>
+          <li><a href="<?php echo $url.'lips.html'?>"><img src="<?php echo $this->getViewFileUrl('images/lips.jpg'); ?>" class="img-responsive" alt="" /></a></li>
+          <li><a href="<?php echo $url.'augen.html'?>"><img src="<?php echo $this->getViewFileUrl('images/eye.jpg'); ?>" class="img-responsive" alt="" /></a></li>
+          <li><a href="<?php echo $url.'nails.html'?>"><img src="<?php echo $this->getViewFileUrl('images/nails.jpg'); ?>" class="img-responsive" alt="" /></a></li>
+        </ul>
+        </div>
+        <div class="col-md-4 wid24">
+          <a href="#"><img src="<?php echo $this->getViewFileUrl('images/summer.jpg'); ?>" class="img-responsive" alt="" /></a>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+
+  <!-- 5 modals -->
+  <!-- <div class="midsection full_insta_section">
+    <div class="custom-container">
+      <h2 class="title"><?= __("Share your look")?> <strong>#exurbecosmetics</strong> </h2>
+      <ul class="modallist">
+        <li><a href="#">
+          <img src="<?php echo $this->getViewFileUrl('images/teil1.jpg'); ?>" class="img-responsive" alt="" />
+          <div class="icon"><img src="<?php echo $this->getViewFileUrl('images/instagram.png'); ?>" alt="" /></div>
+        </a></li>
+        <li><a href="#">
+          <img src="<?php echo $this->getViewFileUrl('images/teil2.jpg'); ?>" class="img-responsive" alt="" />
+          <div class="icon"><img src="<?php echo $this->getViewFileUrl('images/instagram.png'); ?>" alt="" /></div>
+        </a></li>
+        <li><a href="#">
+          <img src="<?php echo $this->getViewFileUrl('images/teil3.jpg'); ?>" class="img-responsive" alt="" />
+          <div class="icon"><img src="<?php echo $this->getViewFileUrl('images/instagram.png'); ?>" alt="" /></div>
+        </a></li>
+        <li><a href="#">
+          <img src="<?php echo $this->getViewFileUrl('images/teil4.jpg'); ?>" class="img-responsive" alt="" />
+          <div class="icon"><img src="<?php echo $this->getViewFileUrl('images/instagram.png'); ?>" alt="" /></div>
+        </a></li>
+        <li><a href="#">
+          <img src="<?php echo $this->getViewFileUrl('images/teil5.jpg'); ?>" class="img-responsive" alt="" />
+          <div class="icon"><img src="<?php echo $this->getViewFileUrl('images/instagram.png'); ?>" alt="" /></div>
+        </a></li>
+      </ul>
+    </div>
+  </div> -->
+
+	<div class="midsection full_insta_section">
+		<h2 class="title">Teile deinen Look <span>#exurbecosmetics</span> </h2>
+		<?php echo $this->getLayout()->createBlock("Magenest\InstagramShop\Block\Photo\Slider")->setTemplate("Magenest_InstagramShop::slider/slider.phtml")->toHtml(); ?>
+	</div>
+<?php //echo $this->setTemplate("Magento_Theme::html/instagram_slider.phtml")->toHtml() ?>
+<?php //echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('block_insta')->toHtml(); ?>
+
+
+  <!-- full img -->
+  <div class="midsection banner-desktop">
+    <div class="custom-container"><img src="<?php echo $this->getViewFileUrl('images/banner-mid.jpg'); ?>" class="img-responsive" alt="" /></div>
+  </div>
+
+
+	<div class="midsection product-list for_mobile" >
+ 	<div class="custom-container">
+ 		<h2 class="title"><?=__("Our favourites")?></h2>
+
+ 			<div id="carousel-example-generic1" class="carousel slide" data-ride="carousel">
+ 					<div class="carousel-inner" role="listbox">
+ 			<?php $i=0;foreach ($productCollection as $product) { ?>
+ 				<?php $postParams = $block->getAddToCartPostParams($product); ?>
+					 <?php $ratings=$blockObj->get_rating($product) ?>
+ 						 <?php //print_r($postParams); ?>
+ 						 <?php if($i==0)
+ 						 { ?>
+ 									<div class="item active">
+ 					<?php	 }else{ ?>
+ 								<div class="item">
+ 					<?php 	 } ?>
+
+ 						 <form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
+ 							 <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
+ 							 <input type="hidden" name="uenc" value="<?php /* @escapeNotVerified */echo $postParams['data']['uenc']; ?>">
+ 								<?php echo $block->getBlockHtml('formkey')?>
+
+ 					<div class="imgbox"><a href="<?php echo $product->getProductUrl();?>"><?=$block->getProductImageUrl($product)?></a></div>
+ 					<h3><a href="#"><?=$product->getName()?></a></h3>
+ 					<p>Lidschatten</p>
+ 					<div class="price">CHF <?=$product->getFinalPrice()?> </div>
+					<div class="review-ratings">
+	 <div class="rating-summary item" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating">
+	 <!--<span class="label rating-label"><span>Quality</span></span>-->
+	 <div class="rating-result" title="<?=$ratings?>%">
+	 <meta itemprop="worstRating" content="1">
+	 <meta itemprop="bestRating" content="100">
+	 <span style="width:<?=$ratings?>%">
+	 <span itemprop="ratingValue"><?=$ratings?>%</span>
+	 </span>
+	 </div>
+	 </div>
+ </div>
+
+
+ 				<button type="submit"
+ 								title="<?php //echo $block->escapeHtml(__('Add to Cart')); ?>"
+ 								class="action tocart primary">
+ 						<span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
+ 				</button>
+ 			</form>
+ 		</div>
+ 			<?php $i++;} ?>
+ 		</div>
+ 		</div>
+ 		<!-- Controls -->
+ 		<a class="left carousel-control" href="#carousel-example-generic1" role="button" data-slide="prev">
+ 			<img src="<?php echo $this->getViewFileUrl('images/prev.png'); ?>" alt="" />
+ 		</a>
+ 		<a class="right carousel-control" href="#carousel-example-generic1" role="button" data-slide="next">
+ 			<img src="<?php echo $this->getViewFileUrl('images/next.png'); ?>" alt="" />
+ 		</a>
+ 	</div>
+ </div>
+<?php echo $this->getLayout()->createBlock("Favourite\FProduct\Block\FProduct")->setTemplate("Favourite_FProduct::fproduct.phtml")->toHtml();?>

@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Magetwo::top_level" module="Magetwo_Giftcard" resource="Magento_Backend::content" sortOrder="9999" title="Magetwo"/>
+		<add action="magetwo_giftcard/giftcode/index" id="Magetwo::magetwo_giftcard_giftcode" module="Magetwo_Giftcard" parent="Magetwo::top_level" resource="Magento_Backend::content" sortOrder="9999" title="Giftcode"/>
+	</menu>
+</config>

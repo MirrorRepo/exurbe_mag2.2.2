@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Xtento_GridActions::configuration" title="Simplify Bulk Order Processing" module="Xtento_GridActions" sortOrder="155" parent="Xtento_XtCore::extensions" action="adminhtml/system_config/edit/section/gridactions" resource="Xtento_GridActions::configuration"/>
+    </menu>
+</config>
+<!--
+/**
+ * Product:       Xtento_GridActions
+ * ID:            /wnS7JP8C2nvb1jEK6bWS5TtKkvrPoanLM2NpRZ9JJU=
+ * Last Modified: 2017-01-25T13:03:13+00:00
+ * File:          app/code/Xtento/GridActions/etc/adminhtml/menu.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

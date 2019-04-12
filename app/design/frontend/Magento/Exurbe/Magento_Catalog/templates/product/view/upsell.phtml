@@ -1,0 +1,94 @@
+<!-- Upsell Products -->
+
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$block_product= $block->getLayout()->createBlock('Favourite\FProduct\Block\FProduct');
+$category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
+$_product=$currentProduct = $objectManager->get('Magento\Framework\Registry')->registry('current_product');//get current product
+$blockObj= $block->getLayout()->createBlock('Favourite\FProduct\Block\CProduct');
+  if ($currentProduct)
+  {
+    $upSellProducts = $currentProduct->getUpSellProducts();
+    //check if record is empty or not
+    $count = count($upSellProducts);
+
+
+    if (!empty($upSellProducts))
+    { ?>
+        <?php echo'	<h2 class="title">Das könnte dir  auch<strong> gefallen</strong> </h2>'; ?>
+    	<div id="carousel-example-generic-upsell" class="carousel slide mobile_insta_slider product-list" data-ride="carousel" >
+
+      		<div class="carousel-inner" role="listbox">
+
+
+    <?php  $i = 0;
+      foreach ($upSellProducts as $upSellProduct)
+      {
+
+
+        ?>
+          <?php
+            $productId = $upSellProduct->getId();
+            $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
+            $imageBlock =  $block->getLayout()->createBlock('Magento\Catalog\Block\Product\ListProduct');
+            $productImage = $imageBlock->getImage($product, 'category_page_list');
+            $currencysymbol = $objectManager->create('Magento\Directory\Model\Currency')->getCurrencySymbol();
+            //
+            $ratings=$blockObj->get_rating($product);
+
+            //
+          ?>
+          <?php   if ($i == 1){ ?>
+          	<div class="item active">
+            <?php }else{ ?>
+              	<div class="item">
+          <?php  } ?>
+            <?php $postParams = $block_product->getAddToCartPostParams($product); ?>
+            <form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
+               <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
+               <input type="hidden" name="uenc" value="<?php /* @escapeNotVerified */echo $postParams['data']['uenc']; ?>">
+                <?php echo $block->getBlockHtml('formkey')?>
+                <div class="product-img">
+            <a href="<?php echo $product->getProductUrl(); ?>"><?php echo $productImage->toHtml(); ?></a>
+          </div>
+            <h3><a href="<?php echo $product->getProductUrl(); ?>"><?php if($product) { echo $product->getName(); } ?></a></h3>
+              <p class="cat-name"><?=$blockObj->get_current_product_category_name($product);?></p>
+
+
+            <div class="price"><?php echo $currencysymbol.number_format($product->getPrice(), 2, '.', ''); ?></div>
+            <div class="review-ratings">
+            <div class="rating-summary item" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating">
+            <!--<span class="label rating-label"><span>Quality</span></span>-->
+            <div class="rating-result" title="<?=number_format($ratings,2,'.','')?>%">
+            <meta itemprop="worstRating" content="1">
+            <meta itemprop="bestRating" content="100">
+            <span style="width:<?=number_format($ratings,2,'.','')?>%">
+            <span itemprop="ratingValue"><?=number_format($ratings,2,'.','')?>%</span>
+            </span>
+            </div>
+            </div>
+          </div>
+
+              <button type="submit"
+                      title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+                      class="action tocart primary">
+                  <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
+              </button>
+          </form>
+        </div>
+        <?php
+        $i++;
+      }
+    }
+  }
+?>
+</div>
+<!-- Controls -->
+<a class="left carousel-control" href="#carousel-example-generic-upsell" role="button" data-slide="prev">
+  <img src="<?php echo $this->getViewFileUrl('images/prev.png'); ?>" alt="" />
+</a>
+<a class="right carousel-control" href="#carousel-example-generic-upsell" role="button" data-slide="next">
+  <img src="<?php echo $this->getViewFileUrl('images/next.png'); ?>" alt="" />
+</a>
+</div>
+</div>

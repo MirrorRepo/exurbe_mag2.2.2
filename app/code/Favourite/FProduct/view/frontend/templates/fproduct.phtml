@@ -1,0 +1,77 @@
+
+  <!-- 3 products -->
+  <?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$productCollection = $this->getProductCollection();
+$blockObj= $block->getLayout()->createBlock('Favourite\FProduct\Block\CProduct');
+$abstractProductBlock = $block->getLayout()->createBlock('\Magento\Catalog\Block\Product\AbstractProduct');
+?>
+ <!-- 3 products -->
+  <div class="midsection product-list">
+   <div class="custom-container">
+     <h2 class="title"><?=__("Our favourites")?></h2>
+     <ul class="prolist">
+       <?php foreach ($productCollection as $product) { ?>
+         <?php $postParams = $block->getAddToCartPostParams($product); ?>
+		 <?php $ratings=$blockObj->get_rating($product) ?>
+              <?php //print_r($postParams); ?>
+               <li>
+              <form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
+                <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
+                <input type="hidden" name="uenc" value="<?php /* @escapeNotVerified */echo $postParams['data']['uenc']; ?>">
+                 <?php echo $block->getBlockHtml('formkey')?>
+
+           <div class="imgbox"><a href="<?php echo $product->getProductUrl();?>"><?=$block->getProductImageUrl($product)?></a></div>
+           <h3><a href="#"><?=$product->getName()?></a></h3>
+           <?php
+							$categories = $product->getCategoryIds();
+							$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+
+							foreach($categories as $parent_category_id){
+								  $subcategory = $objectManager->create('Magento\Catalog\Model\Category')->load($parent_category_id);
+								  $subcats = $subcategory->getChildrenCategories();
+								  if(count($subcats) <= 0){
+									  echo $subcategory->getName();
+								  }
+							}
+						?>
+
+
+
+             <?php /* @escapeNotVerified */ echo $abstractProductBlock->getProductPrice($product) ?>
+		               <div class="review-ratings">
+            <div class="rating-summary item" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating">
+            <!--<span class="label rating-label"><span>Quality</span></span>-->
+            <div class="rating-result" title="<?=number_format($ratings,2,'.','')?>%">
+            <meta itemprop="worstRating" content="1">
+            <meta itemprop="bestRating" content="100">
+            <span style="width:<?=number_format($ratings,2,'.','')?>%">
+            <span itemprop="ratingValue"><?=number_format($ratings,2,'.','')?>%</span>
+            </span>
+            </div>
+            </div>
+          </div>
+
+
+         <button type="submit"
+                 title="<?php //echo $block->escapeHtml(__('Add to Cart')); ?>"
+                 class="action tocart primary">
+             <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
+         </button>
+       </form>
+        </li>
+       <?php } ?>
+     </ul>
+   </div>
+ </div>
+
+  <?php if (!$block->isRedirectToCartEnabled()) : ?>
+      <script type="text/x-magento-init">
+      {
+          "[data-role=tocart-form], .form.map.checkout": {
+              "catalogAddToCart": {}
+          }
+      }
+      </script>
+  <?php endif; ?>

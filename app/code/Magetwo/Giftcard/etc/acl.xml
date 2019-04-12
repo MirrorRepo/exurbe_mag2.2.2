@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="Magetwo_Giftcard::Giftcode" sortOrder="10" title="Giftcode">
+					<resource id="Magetwo_Giftcard::Giftcode_save" sortOrder="10" title="Save Giftcode"/>
+					<resource id="Magetwo_Giftcard::Giftcode_delete" sortOrder="20" title="Delete Giftcode"/>
+					<resource id="Magetwo_Giftcard::Giftcode_update" sortOrder="30" title="Update Giftcode"/>
+					<resource id="Magetwo_Giftcard::Giftcode_view" sortOrder="40" title="View Giftcode"/>
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>

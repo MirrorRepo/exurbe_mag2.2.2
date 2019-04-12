@@ -1,0 +1,45 @@
+<main>
+    <?php
+    $imageCollection=$block->getLoadImageCollection();
+    $galleryCollection = $block->getLoadGalleryCollection();
+    $imageId=$block->getImageId();
+    $len = count($imageId);
+    $num=1;
+    ?>
+    <div class="slideshow-container">
+        <?php foreach ($imageId as $image) :
+            $imageCollection->load($image);
+            ?>
+            <div class="mySlides fade">
+                <div class="numbertext"> <?php echo ($num) . "/" . $len; ?></div>
+                <img src="<?php echo $this->getUrl() . 'pub/media/' . $imageCollection->getImage(); ?>"
+                     style="width: <?php echo $block->getVerticalConfig(); ?>%;height: <?php echo $block->getHorizontalConfig(); ?>%;">
+                <br><br><br><br>
+                <div class="text"><?php echo $imageCollection->getTitle() . " " . $imageCollection->getDescription(); ?></div>
+            </div>
+        <?php
+        $num++;
+endforeach; ?>
+
+        <a data-action="gal-prev" class="prev" style="">&#10094;</a>
+        <a data-action="gal-next" class="next">&#10095;</a>
+    </div>
+    <br>
+    <div style="text-align:center">
+        <?php
+        $dotnum = 1;
+        foreach ($imageId as $image) :
+            ?>
+            <a data-action="gal-currentSlide" data-ind="<?php echo $dotnum; ?>" class="dot"></a>
+            <?php $dotnum++;
+        endforeach; ?>
+
+    </div>
+</main>
+<script type="text/javascript">
+    require([
+        "jquery",
+        "Magenest_ImageGallery/js/view/gallery"
+    ], function ($, gallery) {
+    })
+</script>

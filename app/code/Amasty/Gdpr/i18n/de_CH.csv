@@ -1,0 +1,208 @@
+Privacy Settings,Datenschutzeinstellungen
+Clone,Duplizieren
+Are you sure you want to do this?,"Bist du sicher, dass du das tun willst?"
+Delete,Löschen
+Save and Continue Edit,Speichern und weiter bearbeiten
+Save,Speichern
+Send,Senden
+Download personal data,Persönliche Daten herunterladen
+Here you can download a copy of your personal data which we store for your account in CSV format.,"Hier kannst du eine Kopie deiner persönlichen Daten herunterladen, die wir für dein Konto im CSV-Format speichern."
+Download,Herunterladen
+Anonymise personal data,Persönliche Daten anonymisieren
+"Anonymising your personal data means that it will be replaced with non-personal anonymous information and before that you will get your new login and password to your e-mail address. After this process, your e-mail address and all other personal data will be removed from the website.","Die Anonymisierung deiner personenbezogenen Daten bedeutet, dass sie durch nicht personenbezogene anonyme Informationen ersetzt werden und du ein neues Login und Passwort an deine E-Mail-Adresse gesendet erhältst. Nach diesem Prozess werden deine E-Mail-Adresse und alle anderen personenbezogenen Daten von der Website entfernt."
+I agree and I want to proceed,Ich bin einverstanden und möchte fortfahren.
+Proceed,Weiter
+Delete account,Kundenkonto löschen
+"Request to remove your account, together with all your personal data, will be processed by our staff.<br>Deleting your account will remove all the purchase history, discounts, orders, invoices and all other information that might be related to your account or your purchases.<br>All your orders and similar information will be lost.<br>You will not be able to restore access to your account after we approve your removal request.","Der Antrag auf Entfernung deines Kontos, zusammen mit allen deinen persönlichen Daten, wird von unseren Mitarbeitern bearbeitet. <br>Löschen deines Kontos entfernt alle Einkaufshistorie, Rabatte, Bestellungen, Rechnungen und alle anderen Informationen, die mit deinem Konto oder deinen Einkäufen zusammenhängen könnten. <br>Alle deine Bestellungen und ähnliche Informationen gehen verloren. <br>Du kannst den Zugang zu deinem Konto nicht wiederherstellen, nachdem wir deinen Entfernungsantrag genehmigt haben."
+I understand and I want to delete my account,Ich verstehe und möchte mein Konto löschen.
+Submit request,Anfrage abschicken
+Revoke Cookie Policy Consent,Widerruf der Cookie-Richtlinie Einwilligung
+Revoke,Widerrufen
+Action Log,Aktivitäts Log
+Customers Consents Email Queue,Customers Consents Email Queue
+Cookie Policy Consents,Cookie Policy Consents
+This policy no longer exists.,Diese Richtlinie existiert nicht mehr.
+You deleted the policy.,Du hast die Richtlinie gelöscht.
+We can't delete item right now. Please review the log and try again.,Wir können im Moment keinen Artikel löschen. Bitte überprüfen Sie das Protokoll und versuchen Sie es erneut.
+New Privacy Policy,Neue Datenschutzerklärung
+Edit Privacy Policy %1,Datenschutzerklärung bearbeiten %1
+Privacy Policy,Datenschutzerklärung
+Please correct the data sent.,Bitte korrigiere die gesendeten Daten.
+Something went wrong while saving the question.,Beim Speichern der Frage ist etwas schief gelaufen.
+%1 policies(s) has been successfully deleted,%1 Datenschutzerklärung(en) wurde(n) gelöscht
+An error has occurred,Es ist ein Fehler aufgetreten
+"Sorry, privacy policy with the same version already exists.","Sorry, Datenschutzerklärung mit der gleichen Version existiert bereits."
+"Privacy Policy - Sorry, privacy policy with the same version already exists.","Datenschutzerklärung - Sorry, die Datenschutzerklärung mit der gleichen Version existiert bereits."
+You saved the item.,Du hast den Artikel gespeichert.
+%1 customer(s) has been successfully deleted,%1 Kunde(n) erfolgreich gelöscht
+"%1 customer(s) has not been successfully deleted, because they have non-completed order(s)","%1 Kunde(n) wurde(n) nicht erfolgreich gelöscht, weil sie noch nicht abgeschlossene(n) Auftrag(e) haben."
+Delete Requests,Aufträge löschen
+Deny Delete Requests,Löschaufträge ablehnen
+An error has occurred. Please check logs for more details,Es ist ein Fehler aufgetreten. Bitte überprüfen Sie die Protokolle für weitere Details.
+%1 email(s) has been sent,%1 E-Mail(s) wurde(n) gesendet
+Customers With Consent,Kunden mit Zustimmung
+Customers were successfully added to email queue,Kunden wurden erfolgreich in die E-Mail-Warteschlange aufgenommen.
+Customers Without Consent,Kunden ohne Zustimmung
+Invalid Form Key. Please refresh the page.,Ungültiger Formularschlüssel. Bitte aktualisieren Sie die Seite..
+Access denied.,Zugriff verweigert.
+Wrong Password. Please recheck it.,Falsches Passwort. Bitte überprüfen Sie es noch einmal.
+Your delete account request is awaiting for the review by the administrator.,Der Antrag auf ein Löschung deines Konto wartet auf die Überprüfung durch den Administrator.
+"Thank you, your account delete request was recorded.","Vielen Dank, dein Antrag auf Löschung deines Kontos wurde aufgezeichnet."
+We can not anonymize order,Wir können die Bestellung nicht anonymisieren.
+"We can not anonymize your account right now, because you have non-completed order(s):%1","Wir können dein Konto im Moment nicht anonymisieren, da du noch nicht abgeschlossene Bestellungen hast:%1"
+Anonymisation was successful,Anonymisierung war erfolgreich
+Thank you for your cooperation. Your consent was recorded.,Vielen Dank für deine Mitarbeit. Deine Einwilligung wurde protokolliert.
+Something went wrong.,Etwas ist schief gelaufen.
+Cookies has been revoked,Cookies wurden widerrufen.
+No cookie decision has been made yet,Es wurde noch keine Cookie-Entscheidung getroffen.
+Unable to save actionLog with ID %1. Error: %2,actionLog mit ID %1 kann nicht gespeichert werden. Fehler: %2
+Unable to save new actionLog. Error: %1,actionLog konnte nicht gespeichert werden. Error: %1
+"ActionLog with specified ID ""%1"" not found.","ActionLog mit ID ""%1"" konnte nicht gefunden werden."
+Unable to remove actionLog with ID %1. Error: %2,actionLog mit der ID %1 kann nicht entfernt werden. Fehler: %2
+Unable to remove actionLog. Error: %1,actionLog kann nicht entfernt werden. Fehler: %1
+Consent Given,Einwilligung erteilt
+Delete Request Submitted,Lösch-Antrag gesendet
+Delete Request Approved,Lösch-Antrag bewilligt
+Data Anonymised by Customer,Daten durch Kunden anonymisiert
+Footer,Footer
+Top,Top
+No,Nein
+Notification bar,Benachrichtigungsleiste
+Confirmation bar,Bestätigungsleiste
+Pending,Ausstehend
+Success,Erfolgreich
+Fail,Fehlgeschlagen
+Unable to save deleteRequest with ID %1. Error: %2,deleteRequest kann nicht mit der ID %1 gespeichert werden. Fehler: %2
+Unable to save new deleteRequest. Error: %1,"Es ist nicht möglich, eine neue DeleteRequest zu speichern. Fehler: %11"
+"DeleteRequest with specified ID ""%1"" not found.","DeleteRequest mit angegebener ID ""%1"" nicht gefunden."
+Unable to remove deleteRequest with ID %1. Error: %2,deleteRequest mit der ID %1 kann nicht entfernt werden. Fehler: %2
+Unable to remove deleteRequest. Error: %1,deleteRequest kann nicht entfernt werden. Fehler: %1
+Registration,Registrierung
+Checkout,Zur Kasse
+Contact Us,Kontaktiere uns
+Newsletter Subscription,Newsletter-Anmeldung
+Email,Email
+Received,Erhalten
+Revoked,Widerrufen
+Notification Bar Consent,Benachrichtigungsleiste Zustimmung
+Confirmation Bar Allowed Optional Cookies,Bestätigungsleiste Erlaubt Optionale Cookies
+Confirmation Bar Disallowed Optional Cookies,Bestätigungsleiste nicht erlaubt Optionale Cookies
+Draft,Entwurf
+Disabled,Deaktiviert
+Enabled,Aktiviert
+Policy is active,Die Richtlinie ist aktiv
+Unable to save policy with ID %1. Error: %2,Die Richtlinie kann nicht mit der ID %1 gespeichert werden. Fehler: %2
+Unable to save new policy. Error: %1,Neue Richtlinie kann nicht gespeichert werden. Fehler: %1
+"Policy with specified ID ""%1"" not found.","Richtlinie mit angegebener ID ""%1"" nicht gefunden."
+Unable to remove policy with ID %1. Error: %2,Die Richtlinie mit der ID %1 kann nicht entfernt werden. Fehler: %2
+Unable to remove policy. Error: %1,Die Richtlinie kann nicht entfernt werden. Fehler: %1
+Unable to save consentQueue with ID %1. Error: %2,consentQueue kann nicht mit der ID %1 gespeichert werden. Fehler: %2
+Unable to save new consentQueue. Error: %1,Die neue consentQueue kann nicht gespeichert werden. Fehler: %1
+"ConsentQueue with specified ID ""%1"" not found.","ConsentQueue mit angegebener ID ""%1"" nicht gefunden."
+Unable to remove consentQueue with ID %1. Error: %2,consentQueue mit der ID %1 kann nicht entfernt werden. Fehler: %2
+Unable to remove consentQueue. Error: %1,Die consentQueue kann nicht entfernt werden. Fehler: %1
+Unable to save cookiePolicyConsent with ID %1. Error: %2,CookiePolicyConsent kann nicht mit der ID %1 gespeichert werden. Fehler: %2
+Unable to save new withConsent. Error: %1,"Es ist nicht möglich, neue withConsent zu speichern. Fehler: %1"
+"CookiePolicyConsent with specified ID ""%1"" not found.","CookiePolicyConsent mit ID ""%1"" nicht gefunden."
+Unable to remove CookiePolicyConsent with ID %1. Error: %2,CookiePolicyConsent mit der ID %1 kann nicht entfernt werden. Fehler: %2
+Unable to remove CookiePolicyConsent. Error: %1,CookiePolicyConsent kann nicht entfernt werden. Fehler: %1
+Unable to save withConsent with ID %1. Error: %2,Das Speichern von withConsent mit der ID %1 ist nicht möglich. Fehler: %2
+"WithConsent with specified ID ""%1"" not found.","WithConsent mit angegebener ID ""%1"" nicht gefunden."
+Unable to remove withConsent with ID %1. Error: %2,"Es ist nicht möglich, withConsent mit der ID %1 zu entfernen. Fehler: %2"
+Unable to remove withConsent. Error: %1,Löschen von withConsent nicht möglich. Error: %1
+[STORE VIEW],[STORE VIEW]
+"You can see queue of sending e-mail consents <a target=""_blank"" href=""%1"">here</a>.","Du kannst die Warteschlange für das Senden von E-Mail-Zustimmungen <a target=""_blank"""" href=""%1"">hier</a> sehen."
+Kindly be informed that Active or Disabled Privacy Policy cannot be amended. Please use the CLONE function to create a new Privacy Policy version and amend the text.,"Bitte beachte, dass die Datenschutzerklärung für aktive oder deaktivierte Personen nicht geändert werden kann. Bitte verwende die CLONE-Funktion, um eine neue Version der Datenschutzerklärung zu erstellen und den Text zu ändern."
+Accept privacy policy,Datenschutzerklärung akzeptieren
+Current Password,Aktuelles Passwort
+Allow Cookies,Cookies zulassen
+Disallow Cookies,Cookies verbieten
+I have read and accept,Ich habe gelesen und akzeptiere
+GDPR,GDPR
+General,General
+Forbid customer's personal data anonymization and deletion for orders in certain statuses,Verbietet die Anonymisierung und Löschung der personenbezogenen Daten des Kunden für Bestellungen mit bestimmtem Status.
+"If enabled, customer’s personal data of orders in certain statuses won’t be allowed for anonymization or deletion by a customer or admin.","Wenn diese Option aktiviert ist, dürfen die personenbezogenen Daten des Kunden von Bestellungen in bestimmten Status nicht zur Anonymisierung oder Löschung durch einen Kunden oder Administrator verwendet werden."
+Order Statuses,Bestellstatus
+Customer’s personal data of orders with the chosen statuses won’t be allowed for anonymization.,Personenbezogene Daten des Kunden von Bestellungen mit den gewählten Status werden nicht zur Anonymisierung zugelassen.
+Enable or Disable 'Privacy Settings' Sections,"Aktivieren oder Deaktivieren der Abschnitte ""Datenschutzeinstellungen""."
+Download Personal Data,Persönliche Daten herunterladen
+A customer will not be able to download personal data if disabled.,"Ein Kunde kann keine personenbezogenen Daten herunterladen, wenn er deaktiviert ist."
+Anonymize Personal Data,Personenbezogene Daten anonymisieren
+A customer will not be able to anonymize personal data if disabled.,"Ein Kunde wird nicht in der Lage sein, personenbezogene Daten zu anonymisieren, wenn sie deaktiviert sind."
+Delete Account,Konto löschen
+A customer will not be able to delete account if disabled.,"Ein Kunde kann sein Konto nicht löschen, wenn es deaktiviert ist."
+Anonymization Notifications,Anonymisierungsbenachrichtigungen
+Email Sender,Email Sender
+Email Reply To,Email Absender
+You can set only one email address in this field.,In diesem Feld können Sie nur eine E-Mail-Adresse festlegen.
+Specify a separate email address for replies or leave blank to use the sender address instead.,"Geben Sie eine separate E-Mail-Adresse für Antworten an oder lassen Sie das Feld leer, um stattdessen die Absenderadresse zu verwenden."
+Email Template,Email Vorlage
+Delete 'Account Requests' Notifications,"Benachrichtigungen über ""Kontoanforderungen"" löschen"
+<b>Admin Notfication</b>,<b>Admin-Hinweis</b>
+Notify Administrator Each Time User Requests To Delete Account,"Benachrichtigen Sie den Administrator bei jeder Benutzeranfrage, das Konto zu löschen."
+Send Email To,Email senden an
+"This will be used in the ""To"" field. Several emails should be written on a separate line.","Diese wird im Feld ""An"" verwendet. Mehrere E-Mails sollten in einer separaten Zeile geschrieben werden."
+<b>Approve Notification</b>,<b>Benachrichtigung genehmigen</b>
+<b>Deny Notification</b>,<b>Ablehnungsbenachrichtigung</b>
+Consent Request Notifications,Benachrichtigungen über Zustimmungsanfragen
+Privacy Checkbox,Kontrollkästchen Datenschutz
+"Display Only for <a target=""_blank"" href=""https://en.wikipedia.org/wiki/European_Economic_Area"" target=""_blank"">EEA</a> Countries","Nur für <a target=""_blank"" href=""https://en.wikipedia.org/wiki/European_Economic_Area"" target=""_blank"">EEA</a> Länder anzeigen"
+EEA Countries,EEA Länder
+All selected countries will be considered to be EU countries,Alle ausgewählten Länder werden als EU-Länder betrachtet.
+Consent Text,Einverständnistext
+"You can use any HTML-tags in this field. Please, mind the security.",In diesem Feld können Sie beliebige HTML-Tags verwenden. Bitte beachten Sie die Sicherheitsvorkehrungen.
+Display at Registration,Anzeige bei der Registrierung
+Display at Checkout,Anzeige am Checkout
+Display at Contact Us,Anzeige bei Kontakt
+Display at Newsletter Subscription,Anzeige bei Newsletter-Anmeldung
+Cookie Policy,Cookie-Richtlinie
+Enable Cookie Policy Bar,Cookie-Richtlinienleiste aktivieren
+Disallow a customer to interact with the website until the Cookie Policy is accepted?,"Einem Kunden die Interaktion mit der Website verbieten, bis die Cookie-Richtlinie akzeptiert wird??"
+Cookie Policy Text,Text der Cookie-Richtlinie
+Cookies to Exclude,Cookies zum Ausschließen
+These cookies won't be used if a visitor rejects the cookie policy.,"Diese Cookies werden nicht verwendet, wenn ein Besucher die Cookie-Richtlinie ablehnt."
+Cookie Policy Bar Customization,Cookie-Richtlinie-Leiste Anpassungen
+Cookie Policy Bar Location,Cookie-Richtlinie-Leisten Platzierung
+Choose the location of your cookie policy bar,Wählen Sie den Speicherort Ihrer Cookie-Richtlinienleiste aus.
+Background color of Cookie Policy Bar,Hintergrundfarbe der Cookie Policy Bar
+Buttons color of Cookie Policy Bar,Schaltflächenfarbe der Cookie-Richtlinienleiste
+Buttons text color of Cookie Policy Bar,Schaltflächen Textfarbe der Cookie-Richtlinienleiste
+Text color of Cookie Policy Bar,Textfarbe der Cookie-Richtlinienleiste
+Links color of Cookie Policy Bar,Links Farbe der Cookie Policy Bar
+Customer Id,Customer Id
+Customer Name,Kundenname
+Ip Address,Ip Addresse
+Date,Datum
+Action,Action
+Customer ID,Customer ID
+Status,Status
+Customer Email,Customer Email
+Website,Website
+Consent Type,Zustimmungsart
+Consent Status,Zustimmungs-Status
+Back,Zurück
+Comment,Kommmentar
+Version,Version
+Policy,Richtlinie
+Add New Policy,Neue Richtlinie hinzufügen
+Delete policies,Richtlinien löschen
+Are you sure you want to delete selected policies?,"Bist du sicher, dass du ausgewählte Richtlinien löschen möchtest?"
+Id,Id
+Date Created,Erstelldatum
+Version Number,Versionsnummer
+Last Edited,Zuletzt bearbeitet
+Last Edited By,Zuletzt bearbeteitet von
+Edit,Bearbeiten
+Approve,Bewilligen
+Approve Delete Requests,Löschanforderungen genehmigen
+Are you sure you want to approve selected requests?,"Bist du sicher, dass du ausgewählte Richtlinien löschen möchtest?"
+Date Submitted,Übermittlungsdatum
+Completed Orders Qty,Erledigte Aufträge Stk.
+Pending Orders Qty,Offene Aufträge Stk.
+Email Consent Request,E-Mail-Zustimmungsanfrage
+Are you sure?,Bist du sicher?
+Date Consented,Einwilligungsdatum
+Policy Version,Richtlinienversion
+Got From,Erhalten von
+Remote IP Address,Remote IP Address
+Country,Land

@@ -1,0 +1,25 @@
+<?php /** @var $block  \Magenest\ImageGallery\Block\Adminhtml\Gallery\Edit\Js */ ?>
+<?php
+$_data = $block->getApplyImage();
+?>
+<script>
+    require([
+        "jquery"
+    ], function ($) {
+        var useGallery = <?php echo $_data; ?>;
+        if (useGallery.length > 0) {
+            for (var i = 0; i < useGallery.length; i++) {
+                $('#id_'+useGallery[i]).attr('checked', true); // Checks it
+            }
+        }
+        var applyGallery = document.getElementById("page_image_id");
+
+        $(".checkbox").click(function(){
+            var myArray = [];
+            $.each($('input[type="checkbox"]:checked'), function() {
+                return  myArray.push($(this).val());
+            });
+            applyGallery.value = myArray;
+        });
+    });
+</script>

@@ -1,0 +1,172 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product view template
+ *
+ * @see \Magento\Catalog\Block\Product\View
+ */
+?>
+<?php
+$blockObj= $block->getLayout()->createBlock('Favourite\FProduct\Block\CProduct');
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$_product = $block->getProduct();
+$_call = $block->getAtCall();
+$_code = $block->getAtCode();
+$_className = $block->getCssClass();
+$_attributeLabel = $block->getAtLabel();
+$_attributeType = $block->getAtType();
+$_attributeAddAttribute = $block->getAddAttribute();
+
+$product_heading= $blockObj->get_current_product_category_name($_product);
+//print_r($product_heading);
+if ($_attributeLabel && $_attributeLabel == 'default') {
+    $_attributeLabel = $_product->getResource()->getAttribute($_code)->getFrontendLabel();
+}
+if ($_attributeType && $_attributeType == 'text') {
+    $_attributeValue = ($_helper->productAttribute($_product, $_product->$_call(), $_code)) ? $_product->getAttributeText($_code) : '';
+} else {
+    $_attributeValue = $_helper->productAttribute($_product, $_product->$_call(), $_code);
+}
+
+?>
+<?php if ($product_heading){ ?>
+<h3 class="heading_RG"><?=$product_heading?></h3>
+<?php } ?>
+<?php if ($_attributeValue): ?>
+<div class="product attibute <?php /* @escapeNotVerified */ echo $_className?>">
+    <?php if ($_attributeLabel != 'none'): ?><strong class="type"><?php /* @escapeNotVerified */ echo $_attributeLabel?></strong><?php endif; ?>
+    <div class="value" <?php /* @escapeNotVerified */ echo $_attributeAddAttribute;?>><?php /* @escapeNotVerified */ echo $_attributeValue; ?></div>
+</div>
+<?php endif; ?>
+<?php
+    if ($_className == "overview")
+    { ?>
+      <div class="vegan_box_RG">
+        <div class="vegan">
+            <div class="img-box"><img src="<?php echo $this->getViewFileUrl('images/svg/vigan1.svg'); ?>"" class="img-flower"></div>
+            <span class="img-flower-txt">Vegan</span>
+        </div>
+        <div class="vegan">
+            <div class="img-box"><img src="<?php echo $this->getViewFileUrl('images/svg/rabit1.svg'); ?>" class="img-rabbit"></div>
+            <span class="img-rabbit-txt">Ohne Tierversuche</span>
+        </div>
+      </div>
+    <?php
+    }
+?>
+
+
+<?php
+	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+	$_product = $block->getProduct();
+
+	$product_id = $_product->getId();
+
+	$helperImport = $objectManager->get('\Magento\Catalog\Helper\Image');
+
+
+	$productObj = $objectManager->create('Magento\Catalog\Model\Product')->load($product_id);
+	$colorOption = $productObj->getResource()->getAttribute('releted_color')->getFrontend()->getValue($productObj);
+	$colorOptionId = $_product->getResource()->getAttribute('releted_color')->getOptionId($colorOption);
+	$attr = $productObj->getResource()->getAttribute('releted_color');
+  $current_product_code="";
+
+	if ($attr->usesSource()) {
+		$attributeId = $attr->getSource()->getOptionId($colorOption);
+		$resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+		$connection = $resource->getConnection();
+		$tableName = $resource->getTableName('eav_attribute_option_swatch');
+    //echo $attributeId;
+    if($attributeId!=""){
+		$sql = "Select * FROM " . $tableName." where option_id = ".$attributeId;
+		$result_query = $connection->fetchAll($sql);
+		$current_product_code=$productHexCode = $result_query[0]['value'];
+    }
+	}
+	//echo $productHexCode;
+	?>
+  <?php   if($attributeId!=""){ ?>
+	<div class="selected">
+	    <label>Gewählte Farbe</label>
+		<div class="color-txt">
+		<span><?php echo $_product->getName(); ?></span>
+		<?= $colorOption;?>
+		</div>
+		<div class="attribDiv" style="background-color:<?=@$productHexCode?>;"></div>
+		</a>
+	</div>
+<?php } ?>
+	<?php
+	$categories = $_product->getCategoryIds(); /*will return category ids array*/
+	foreach($categories as $category){
+
+		$cat = $objectManager->create('Magento\Catalog\Model\Category')->load($category);
+		$cats[] =  $cat->getId();
+    }
+	//print_r($cats);
+	$check = array();
+	@$check[0] = @$cats[0];
+	$Fblock = $this->getLayout()->createBlock('Favourite\FProduct\Block\CProduct');
+	$productCollection = $Fblock->getCategoryProduct($check);
+	?>
+	<div class="category_product">
+    <ul>
+	<?php
+	foreach ($productCollection as $product) {
+		$img = $helperImport->init($product, 'product_page_image_small')
+                ->setImageFile($product->getSmallImage()) // image,small_image,thumbnail
+                ->resize(380)
+                ->getUrl();
+                $productHexCode = '';
+    $product_id = $product->getId();
+    if($productHexCode!=="undefined"){
+		try{
+		$objectMansager = \Magento\Framework\App\ObjectManager::getInstance();
+		$productObj = $objectManager->create('Magento\Catalog\Model\Product')->load($product_id);
+		$colorOption = $productObj->getResource()->getAttribute('releted_color')->getFrontend()->getValue($productObj);
+		$colorOptionId = $product->getResource()->getAttribute('releted_color')->getOptionId($colorOption);
+		$attr = $productObj->getResource()->getAttribute('releted_color');
+
+		if ($attr->usesSource()) {
+			$attributeId = $attr->getSource()->getOptionId($colorOption);
+			$resource = $objectMansager->get('Magento\Framework\App\ResourceConnection');
+			$connection = $resource->getConnection();
+			$tableName = $resource->getTableName('eav_attribute_option_swatch');
+			$sql = "Select * FROM " . $tableName." where option_id = ".$attributeId;
+			$result_query = $connection->fetchAll($sql);
+			$productHexCode = $result_query[0]['value'];
+		}
+		}catch(Exception $e){}
+
+      ?><?php
+		if($product_id==$product->getId()){
+
+		?>
+			<li><a  class="<?=($current_product_code==$productHexCode)?" active":"";?>" href="<?php echo $product->getProductUrl(); ?>">
+				<!-- <img width="20px" height="20px" src="<?php echo $img; ?>" /> -->
+		  <div class="attribDiv<?=($current_product_code==$productHexCode)?" active":"";?>" style="width:49px;height:49px;background-color:<?=$productHexCode?>;display: inline-block;" val="<?=$product_id?>"></div>
+    </a></li>
+		<?php
+			}else{
+		?>
+		<li>	<a  href="<?php echo $product->getProductUrl(); ?>">
+				<!-- <img width="30px" height="30px" src="<?php echo $img; ?>" /> -->
+
+		  <div class="attribDiv active selected" style="width:20px;height:20px;background-color:<?=$productHexCode?>;display: inline-block;"></div>
+    </a></li>
+		<?php
+			}
+	}
+
+
+	}
+
+ ?></ul>
+	</div>

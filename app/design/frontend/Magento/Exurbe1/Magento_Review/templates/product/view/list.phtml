@@ -1,0 +1,236 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * @description:
+ *
+ */
+?>
+<?php
+    $blockObj= $block->getLayout()->createBlock('Favourite\FProduct\Block\CProduct');
+    $_items = $block->getReviewsCollection()->getItems();
+    $format = $block->getDateFormat() ?: \IntlDateFormatter::SHORT;
+
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $product = $objectManager->get('Magento\Framework\Registry')->registry('current_product');//get current product
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $RatingOb = $objectManager->create('Magento\Review\Model\Rating')->getEntitySummary($product->getId());
+          $ratings=0;
+      if($RatingOb->getSum()!="" && $RatingOb->getSum()!=0){
+    $ratings = $RatingOb->getSum()/$RatingOb->getCount();
+  }
+    //die();
+    //print_r($blockObj->getRatingSummary());
+  // $rating = $this->getRatingSummary();
+  $one=0;$two=0;$three=0;$four=0;$five=0;
+    foreach ($_items as $_review){
+      foreach ($_review->getRatingVotes() as $_vote){
+        switch ($_vote->getPercent()/20) {
+          case '1':
+          $one++;
+          break;
+          case '2':
+          $two++;
+          break;
+          case '3':
+          $three++;
+          break;
+          case '4':
+          $four++;
+          break;
+          case '5':
+          $five++;
+          break;
+          default:
+          break;
+        }
+
+      }
+    }
+    $total=$one+$two+$three+$four+$five;
+?>
+<?php if($total!=0): ?>
+<div id="review_tabs" class="reviews-full-blk">
+   <!-- Product reviews rank start -->
+   <div class="reviews-left-blk">
+	 <div class="pro-num-rank">
+     <!-- number_format($product->getPrice(), 2, '.', ''); -->
+	   <h2><?=number_format(($ratings*5)/100,2,'.','')?></h2>
+		<div class="rating-summary item">
+			<div class="rating-result" title="<?=number_format($ratings,2,'.','')?>%">
+			   <meta itemprop="worstRating" content="1">
+			   <meta itemprop="bestRating" content="100">
+				<span style="width:<?=number_format($ratings,2,'.','')?>%;">
+					<span itemprop="ratingValue"><?=number_format($ratings,2,'.','')?>%</span>
+				</span>
+			</div>
+		</div>
+	 
+
+	 </div>
+
+	 <div class="pro-per-rank">
+	  <div class="per-rank-con">
+	   <div class="rank-con">
+			<span>5</span>
+			<div class="light-grey">
+			<div class="grey" style="width:<?=$five==0?0:(($five/$total)*100)?>%"></div>
+			</div>
+	   </div>
+
+		<div class="rank-con">
+			<span>4</span>
+			<div class="light-grey">
+			<div class="grey" style="width:<?=$four==0?0:($four/$total)*100?>%"></div>
+			</div>
+		</div>
+
+		<div class="rank-con">
+		    <span>3</span>
+			<div class="light-grey">
+			<div class="grey" style="width:<?=$three==0?0:($three/$total)*100?>%"></div>
+			</div>
+		</div>
+
+		<div class="rank-con">
+		    <span>2</span>
+			<div class="light-grey">
+			<div class="grey" style="width:<?=$two==0?0:($two/$total)*100?>%"></div>
+			</div>
+		</div>
+
+		<div class="rank-con">
+		    <span>1</span>
+			<div class="light-grey">
+			<div class="grey" style="width:<?=$one==0?0:($one/$total)*100?>"></div>
+			</div>
+        </div>
+
+		<button id="write_your_review2" type="submit" title="BEWERTUNG ABGEBEN" class="action primary">
+            <span>BEWERTUNG ABGEBEN</span>
+        </button>
+
+	 </div>
+	 </div>
+
+   </div>
+   <!-- Product reviews rank end -->
+
+    <?php
+        if (count($_items) >= 1):
+            ?>
+                <div class="block review-list write-review-blk" id="customer-reviews">
+                    <div class="block-content">
+                        <div class="toolbar review-toolbar">
+                            <?php echo $block->getChildHtml('toolbar') ?>
+                        </div>
+                        <div class="write-your-own-rating-content">
+                            <div class="box-collateral box-reviews full-table" id="customer-reviews">
+                                <ol class="items review-items">
+                                <?php foreach ($_items as $_review):?>
+                                    <li class="item review-item" itemscope itemprop="review" itemtype="http://schema.org/Review">
+                                        <div class="row">
+                                            <div class="col-xs-4 col-sm-4 col-md-3 for-mobile-win">
+                                                <div class="review-details">
+                                                    <?php if (count($_review->getRatingVotes())): ?>
+                                                        <div class="review-ratings">
+                                                            <?php foreach ($_review->getRatingVotes() as $_vote): ?>
+                                                                <div class="rating-summary item" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                                                                    <!--<span class="label rating-label"><span><?php echo $block->escapeHtml($_vote->getRatingCode()) ?></span></span>-->
+                                                                    <div class="rating-result" title="<?php /* @escapeNotVerified */ echo $_vote->getPercent() ?>%">
+                                                                       <meta itemprop="worstRating" content = "1"/>
+                                                                       <meta itemprop="bestRating" content = "100"/>
+                                                                        <span style="width:<?php /* @escapeNotVerified */ echo $_vote->getPercent() ?>%">
+                                                                            <span itemprop="ratingValue"><?php /* @escapeNotVerified */ echo $_vote->getPercent() ?>%</span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            <?php endforeach; ?>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                    <div class="review-date">
+                                                        <time class="review-details-value" itemprop="datePublished" datetime="<?php /* @escapeNotVerified */ echo $block->formatDate($_review->getCreatedAt(), $format) ?>"><?php /* @escapeNotVerified */ echo $block->formatDate($_review->getCreatedAt(), $format) ?></time>
+                                                    </div>
+
+                                                    <div class="rating-of">
+                                                        <?php echo __('Bewertung von'); ?>
+                                                    </div>
+                                                    <div class="review-author">
+                                                        <strong class="review-details-value" itemprop="author"><?php echo strtoupper($block->escapeHtml($_review->getNickname())) ?></strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-8 col-sm-8 col-md-9 for-mobile-win">
+                                                <div class="review-title" itemprop="name">
+                                                    <?php echo $block->escapeHtml($_review->getTitle()) ?>
+                                                </div>
+                                                <div class="review-content" itemprop="description">
+                                                    <?php echo $block->escapeHtml($_review->getDetail()) ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                                </ol>
+                            </div>
+
+							<div class="readmore-blk">
+								<ul>
+								<li><a href="javascript:void(0)" id="read_more_blk">Mehr lesen</a></li>
+								<li><a href="javascript:void(0)" id="write_your_review">Schreibe deine eigene Bewertung</a></li>
+								</ul>
+							</div>
+
+
+                        </div>
+                        <div class="toolbar review-toolbar">
+                            <?php echo $block->getChildHtml('toolbar') ?>
+                        </div>
+                    </div>
+                </div>
+            <?php
+            else:
+                ?>
+                    <div class="block review-list" id="customer-reviews">
+                        <div class="block-content">
+                            <p class="no_reviews_found">Keine Bewertungen für dieses Produkt gefunden</p>
+                        </div>
+                    </div>
+                <?php
+        endif;
+    ?>
+</div>
+<?php endif; ?>
+
+<script>
+
+
+	jQuery(document).ready(function(){
+
+    jQuery(document).on('click', '#write_your_review', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      jQuery("#product_review-form").toggle();
+    });
+
+    jQuery(document).on('click', '#write_your_review2', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      jQuery("#product_review-form").toggle();
+    });
+
+    jQuery(document).on('click', '#read_more_blk', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      jQuery(".catalog-product-view .item.content .review-item:nth-child(n+3)").toggle();
+    });
+
+  });
+</script>

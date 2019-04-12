@@ -1,0 +1,103 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product view template
+ *
+ * @see \Magento\Catalog\Block\Product\View
+ */
+?>
+<?php
+$blockObj= $block->getLayout()->createBlock('Favourite\FProduct\Block\CProduct');
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$_product = $block->getProduct();
+$_call = $block->getAtCall();
+$_code = $block->getAtCode();
+$_className = $block->getCssClass();
+$_attributeLabel = $block->getAtLabel();
+$_attributeType = $block->getAtType();
+$_attributeAddAttribute = $block->getAddAttribute();
+
+$product_heading= $blockObj->get_current_product_category_name($_product);
+//print_r($product_heading);
+if ($_attributeLabel && $_attributeLabel == 'default') {
+    $_attributeLabel = $_product->getResource()->getAttribute($_code)->getFrontendLabel();
+}
+if ($_attributeType && $_attributeType == 'text') {
+    $_attributeValue = ($_helper->productAttribute($_product, $_product->$_call(), $_code)) ? $_product->getAttributeText($_code) : '';
+} else {
+    $_attributeValue = $_helper->productAttribute($_product, $_product->$_call(), $_code);
+}
+
+?>
+<?php if ($product_heading){ ?>
+<h3 class="heading_RG"><?=$product_heading?></h3>
+<?php } ?>
+<?php if ($_attributeValue): ?>
+<div class="product attibute <?php /* @escapeNotVerified */ echo $_className?>">
+    <?php if ($_attributeLabel != 'none'): ?><strong class="type"><?php /* @escapeNotVerified */ echo $_attributeLabel?></strong><?php endif; ?>
+    <div class="value" <?php /* @escapeNotVerified */ echo $_attributeAddAttribute;?>><?php /* @escapeNotVerified */ echo $_attributeValue; ?></div>
+</div>
+<?php endif; ?>
+<?php
+    if ($_className == "overview")
+    { ?>
+      <div class="vegan_box_RG">
+        <div class="vegan">
+            <div class="img-box"><img src="<?php echo $this->getViewFileUrl('images/svg/vigan1.svg'); ?>"" class="img-flower"></div>
+            <span class="img-flower-txt"><?=__('Vegan')?></span>
+        </div>
+        <div class="vegan">
+            <div class="img-box"><img src="<?php echo $this->getViewFileUrl('images/svg/rabit1.svg'); ?>" class="img-rabbit"></div>
+            <span class="img-rabbit-txt"><?=__('Cruelty free')?></span>
+        </div>
+      </div>
+    <?php
+    }
+?>
+<?php
+	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+	$_product = $block->getProduct();
+
+	$current_product_id=$product_id = $_product->getId();
+
+	$helperImport = $objectManager->get('\Magento\Catalog\Helper\Image');
+
+
+	$productObj = $objectManager->create('Magento\Catalog\Model\Product')->load($product_id);
+	$colorOption = $productObj->getResource()->getAttribute('releted_color')->getFrontend()->getValue($productObj);
+	$colorOptionId = $_product->getResource()->getAttribute('releted_color')->getOptionId($colorOption);
+	$attr = $productObj->getResource()->getAttribute('releted_color');
+  $current_product_code="";
+
+	if ($attr->usesSource()) {
+		$attributeId = $attr->getSource()->getOptionId($colorOption);
+		$resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+		$connection = $resource->getConnection();
+		$tableName = $resource->getTableName('eav_attribute_option_swatch');
+    //echo $attributeId;
+    if($attributeId!=""){
+		$sql = "Select * FROM " . $tableName." where option_id = ".$attributeId;
+		$result_query = $connection->fetchAll($sql);
+		$current_product_code=$productHexCode = $result_query[0]['value'];
+    }
+	}
+	//echo $productHexCode;
+	?>
+  <?php $giftvoucher= $productObj->getResource()->getAttribute('type_id')->getFrontend()->getValue($productObj); ?>
+  <?php   if($attributeId!="" && $giftvoucher!="giftvoucher"){ ?>
+	<div class="selected">
+	    <label><?=__('Selected color')?></label>
+		<div class="color-txt">
+		<span><?php echo $_product->getName(); ?></span>
+		</div>
+		<div class="attribDiv" style="background-color:<?=@$productHexCode?>;"></div>
+		</a>
+	</div>
+<?php } ?>

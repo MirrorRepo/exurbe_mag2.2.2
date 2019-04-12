@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="image_gallery" class="Magenest\ImageGallery\Block\Landingspage" is_email_compatible="false" placeholder_image="Magento_Widget::placeholder.gif">
+        <label translate="true">Image Gallery</label>
+        <description translate="true">Image Gallery</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" required="true" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="landingspage.phtml" selected="true">
+                        <label translate="true">Gallery</label>
+                    </option>
+                    <option name="image" value="gallery.phtml">
+                        <label translate="true">Image</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

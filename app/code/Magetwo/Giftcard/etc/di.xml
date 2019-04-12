@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Magetwo\Giftcard\Api\GiftcodeRepositoryInterface" type="Magetwo\Giftcard\Model\GiftcodeRepository"/>
+	<preference for="Magetwo\Giftcard\Api\Data\GiftcodeInterface" type="Magetwo\Giftcard\Model\Giftcode"/>
+	<preference for="Magetwo\Giftcard\Api\Data\GiftcodeSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Magetwo\Giftcard\Model\ResourceModel\Giftcode\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">magetwo_giftcard_giftcode</argument>
+			<argument name="resourceModel" xsi:type="string">Magetwo\Giftcard\Model\ResourceModel\Giftcode\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="magetwo_giftcard_giftcode_grid_data_source" xsi:type="string">Magetwo\Giftcard\Model\ResourceModel\Giftcode\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

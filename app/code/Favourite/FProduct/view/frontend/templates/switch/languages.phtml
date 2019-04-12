@@ -1,0 +1,230 @@
+<style>
+.top_right_link .dropdown ul li:nth-child(2) a:first-child{
+margin-right: 3px;
+}
+.top_right_link .dropdown ul li:nth-child(2) a:first-child:before {
+  display: none;
+
+}
+</style>
+
+
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Language switcher template
+ */
+// print_r($block->getStoreData());
+// die("vvv");
+
+ //$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+ //$customerSession = $objectManager->create('Magento\Catalog\Model\Session');
+//echo $customerSession->getdata()['setMyValue'];
+//print_r($block->getCatalogSession()->getData());
+//echo @$block->getCatalogSession()->getData()['value'];
+
+$stcode = @$_GET['stcode'];
+if($stcode!=""){
+  $this->getCatalogSession()->setValue($stcode);
+}
+$selStore = @$block->getCatalogSession()->getData()['value'];
+//echo $block->getCurrentStoreCode();
+?>
+
+<?php if (count($block->getStoreData())>1): ?>
+<?php $id = $block->getIdModifier() ? '-' . $block->getIdModifier() : ''?>
+<div class="switcher language switcher-language" data-ui-id="language-switcher" id="switcher-language<?php /* @escapeNotVerified */ echo $id?>">
+    <strong class="label switcher-label"><span><?php /* @escapeNotVerified */ ?></span></strong>
+    <div class="actions dropdown options switcher-options">
+        <div class="action toggle switcher-trigger" id="switcher-language-trigger<?php /* @escapeNotVerified */ echo $id?>_1">
+            <strong class="view-<?php echo $block->escapeHtml($block->getCurrentStoreCode()) ?> lang_icons">
+              <span>
+            <?php if(($block->getCurrentStoreCode()=="eude" && $selStore ==6 ) || ($block->getCurrentStoreCode()=="eude" && $selStore==7) ){ ?>
+              	<img src="<?php echo $block->getViewFileUrl('images/svg/flag/austria.svg'); ?>" style="padding-bottom:2px;Width:30px"/>
+            <?php }elseif($block->getCurrentStoreCode()=="eufr" || $block->getCurrentStoreCode()=="euen"){ ?>
+                  <img src="<?php echo $block->getViewFileUrl('images/svg/flag/france-en.svg'); ?>" style="Width:30px" />
+          <?php  }elseif (($block->getCurrentStoreCode()=="eude" && $selStore==4) || ($block->getCurrentStoreCode()=="eude" && $selStore==5) ) { ?>
+                <img src="<?php echo $block->getViewFileUrl('images/svg/flag/germany.svg'); ?>" style="Width:30px" />
+          <?php }else{ ?>
+                  <img src="<?php echo $block->getViewFileUrl('images/svg/flag/flag_' . $block->getCurrentStoreCode() . '.svg'); ?>" style="padding-bottom:3px;Width:30px;"/>
+          <?php } ?>
+
+                <?php echo explode('-',$block->escapeHtml($block->getStoreName()))[0] ?></span>
+            </strong>
+        </div>
+        <ul class="dropdown switcher-dropdown"
+            data-mage-init='{"dropdownDialog":{
+                "appendTo":"#switcher-language<?php /* @escapeNotVerified */ echo $id ?> > .options",
+                "triggerTarget":"#switcher-language-trigger<?php /* @escapeNotVerified */ echo $id."_1" ?>",
+                "closeOnMouseLeave": false,
+                "triggerClass":"active",
+                "parentClass":"active",
+                "buttons":null}}'>
+
+			   <span class="gt_land" style="display:table">LAND/SPRACHE</span>
+         <?php $chde="" ; $chfr="";$chen="";$eude="";$euen="";$uken="";$brpt="";$bren="";$eufr="";$eude_austria="";$eufr_france="";$euen_france="";$euen_austria="";?>
+
+         <?php
+
+
+         switch ($selStore) {
+
+            case '1':{
+            $chde="active";
+            break;
+            }
+
+            case '2':{
+            $chfr="active";
+            break;
+            }
+
+            case '3':{
+            $chen="active";
+            break;
+            }
+
+            case '4':{
+            $eude="active";
+            break;
+            }
+            case '5':{
+            $euen="active";
+            break;
+            }
+            case '6':{
+            $eude_austria="active";
+            break;
+            }
+            case '7':{
+            $euen_austria="active";
+            break;
+            }
+            case '8':{
+            $eufr_france="active";
+            break;
+            }
+            case '9':{
+            $euen_france="active";
+            break;
+            }
+            case '10':{
+            $uken="active";
+            break;
+            }
+            case '11':{
+            $brpt="active";
+            break;
+            }
+            case '12':{
+            $bren="active";
+            break;
+            }
+            default:
+            $chde="active";
+            break;
+} ?>
+				<li class="switcher-option">
+
+					<img src="<?php echo $block->getViewFileUrl('images/svg/flag/flag_chde.svg'); ?>" />
+
+					<a href="<?=$block->get_base_url('chde',1);?>" class="<?=$chde?>">
+						Schweiz
+					</a>
+
+					<a href="<?=$block->get_base_url('chfr',2);?>" class="<?=$chfr?>">
+						Suisse
+					</a>
+					<a href="<?=$block->get_base_url('chen',3);?>" class="<?=$chen?>">
+						Switzerland
+					</a>
+				</li>
+				<li class="switcher-option">
+					<img src="<?php echo $block->getViewFileUrl('images/svg/flag/germany.svg'); ?>" />
+					<a href="<?=$block->get_base_url('eude',4);?>" class="<?= $eude ?>">
+						Deutschland
+					</a>
+					<a href="<?=$block->get_base_url('euen',5);?>" class="<?=$euen?>">
+						Germany
+					</a>
+
+				</li>
+				<li class="switcher-option">
+					<img src="<?php echo $block->getViewFileUrl('images/svg/flag/austria.svg'); ?>" />
+					<a href="<?=$block->get_base_url('eude',6)?>" class="<?=$eude_austria?>">
+						Osterreich
+					</a>
+					<a href="<?=$block->get_base_url('euen',7);?>" class="<?=$euen_austria?>">
+						Austria
+					</a>
+
+				</li>
+				<li>
+					<img src="<?php echo $block->getViewFileUrl('images/svg/flag/france-en.svg'); ?>" />
+					<a href="<?=$block->get_base_url('eufr',8);?>" class="<?=$eufr_france?>">
+						France
+					</a>
+					<a href="<?=$block->get_base_url('euen',9);?>" class="<?=$euen_france?>">
+						France EN
+					</a>
+				</li>
+				<li>
+					<img src="<?php echo $block->getViewFileUrl('images/svg/flag/uk.svg'); ?>" />
+					<a href="<?=$block->get_base_url('uken',10);?>" class="<?=$uken?>">
+						United Kingdom
+					</a>
+				</li>
+				<li>
+					<img src="<?php echo $block->getViewFileUrl('images/svg/flag/brazil.svg'); ?>" />
+					<a href="<?=$block->get_base_url('brpt',11);?>" class="<?=$brpt?>">
+						Brasil
+					</a>
+					<a href="<?=$block->get_base_url('bren',12);?>" class="<?=$bren?>">
+						Brazil
+					</a>
+				</li>
+                <?php /* foreach ($block->getStoreData() as $_langs): ?>
+					<li class="switcher-option">
+						<img src="<?php echo $block->getViewFileUrl('images/flags/flag_' . $_langs[0]['code'] . '.png'); ?>" />
+						<?php foreach ($_langs as $_lang):?>
+							<a href="<?=$block->get_base_url($_lang['code']);?>">
+								<?php $code=explode('-',$_lang['label']);?>
+								<?php echo $block->escapeHtml($code[1]); ?>
+							</a>
+						<?php endforeach; ?>
+					</li>
+				<?php endforeach; */ ?>
+        </ul>
+    </div>
+</div>
+<?php endif; ?>
+
+
+<script>
+// require([
+//     'jquery',
+//     'uiComponent'  // the alias for "mage/accordion"
+// ], function ($,Component) {
+// 'use strict';
+//
+//
+// });
+// });
+// jQuery('.switcher-dropdown').on('dropdowndialogopen', function () {
+// 	jQuery('.block-customer-login').hide();
+//   		jQuery('#minicart-content-wrapper').parent().parent().hide();
+//       		jQuery('.page-header .form-create-account').hide();
+//           		jQuery(".block-search").hide();
+//               	jQuery('#topSearch').removeClass('active');
+//                 	jQuery('#login-popup').removeClass('active');
+//                   jQuery('a.cart-icon.menu_cart').removeClass('active');
+// });
+</script>

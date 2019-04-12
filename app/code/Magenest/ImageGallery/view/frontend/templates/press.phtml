@@ -1,0 +1,66 @@
+<?php
+ /*
+ * @var $block \Credevlabz\Testimonials\Block\TestimonialsList 
+ * @package Credevlabz/Testimonials
+ * @author Aman Srivastava <http://amansrivastava.in>
+ */ 
+ 
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$catalogSession = $objectManager->create('Magento\Catalog\Model\Session');
+if($catalogSession->getPressLogin() != "1" ) : 
+?>	 
+	<form name="press" action="<?php echo $this->getUrl() ; ?>press/index/press" method="post">	
+	<div>This section is password protected. Please enter the password to enter the press area.<br /><br /> Do you require access to our press section? Please contact us at: <a href="mailto:info@exurbecosmetics.com">info@exurbecosmetics.com</a> <br /><br /><br /><br /> <label>Password:</label>
+	<div class="press_pass"><input id="passwordpress" class="input-text required-entry" title="" name="passwordpress" type="password" />
+
+	<div id="advice-required-entry-name" class="validation-advice" style="display: none; position: absolute;">Dies ist ein Pflichtfeld.</div> 
+	<ul id="advice-required-invalidpassword" class="validation-advice pressmessages " style="display: none; position: absolute;">
+	<li class="error-msg">
+	<div class="pressmessages-close-btn"></div>
+	<ul>
+	<li><span>Ungültiges Password.</span></li>
+	</ul>
+	</li>
+	</ul>
+	<button id="submit" class="button" title="SEND" type="submit">SEND</button></div>
+	</div>
+	</form>
+<?php
+else: ?>
+
+  <?php 
+   $imageCollection = $block->getLoadImageCollection();
+   $len = count($imageCollection);
+   if($len>0): 
+   $num=1;
+   $cateArr =  array();
+   foreach ($imageCollection as $ImagesData) :
+   if ($ImagesData->getStatus() == 0) :
+      ?>
+	   <div class="wk_gallery">
+	   <?php
+	   if(!in_array($ImagesData->getGroupName(),$cateArr)): ?>
+	   <div class="cate_name" ><?php echo $ImagesData->getGroupName(); ?></div>
+	   <?php   endif; ?>
+	   <?php $cateArr[] = $ImagesData->getGroupName(); ?>
+		<div id="maingallery<?php echo $num; ?>" class="wk_gallery_img_container">
+		    <?php
+			$urlImage = $this->getUrl() . 'pub/media/' . $ImagesData->getImage();
+			?>
+			<a href="<?php echo $urlImage; ?>"
+			   class="wk_gallery_album">
+				
+				<img src="<?php echo $urlImage; ?>" class="wk_images wk_active wk_default" style="opacity: 1;">
+					<img src="<?php echo $urlImage; ?>" class="wk_images" style="opacity: 0;">
+			</a>
+			</div>
+		</div>
+   
+   <?php
+   $num++;
+   endif;
+   endforeach;
+   endif;
+  ?>
+
+<?php endif;

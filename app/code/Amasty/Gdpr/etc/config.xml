@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Gdpr
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amasty_gdpr>
+            <general>
+                <avoid_anonymisation>0</avoid_anonymisation>
+            </general>
+            <customer_access_control>
+                <download>1</download>
+                <anonymize>1</anonymize>
+                <delete>1</delete>
+            </customer_access_control>
+            <deletion_notification>
+                <enable_admin_notification>0</enable_admin_notification>
+                <admin_sender>general</admin_sender>
+                <admin_template>amasty_gdpr_deletion_notification_admin_template</admin_template>
+                <sender>general</sender>
+                <template>amasty_gdpr_deletion_notification_template</template>
+                <deny_sender>general</deny_sender>
+                <deny_template>amasty_gdpr_deletion_notification_deny_template</deny_template>
+            </deletion_notification>
+            <anonymisation_notification>
+                <sender>general</sender>
+                <template>amasty_gdpr_anonymisation_notification_template</template>
+            </anonymisation_notification>
+            <consent_notification>
+                <sender>general</sender>
+                <template>amasty_gdpr_consent_notification_template</template>
+            </consent_notification>
+            <privacy_checkbox>
+                <eea_only>0</eea_only>
+                <eea_countries>AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IS,IE,IT,LV,LI,LT,LU,MT,NL,NO,PL,PT,RO,SK,SI,ES,SE,GB,CH</eea_countries>
+                <consent_text><![CDATA[I have read and accept the <a href="#">privacy policy</a>]]></consent_text>
+                <display_at_registration>1</display_at_registration>
+                <display_at_checkout>1</display_at_checkout>
+                <display_at_contact>0</display_at_contact>
+                <display_at_newsletter>0</display_at_newsletter>
+            </privacy_checkbox>
+            <cookie_policy>
+                <bar>0</bar>
+                <notify_bar_text><![CDATA[The Website uses cookies. By continuing to use this website, you consent to us using these cookies. <a href="/cookie-policy" target="_blank">Find out more</a>]]></notify_bar_text>
+                <confirmation_bar_text><![CDATA[We use cookies to help improve our services, make personal offers, and enhance your experience. If you do not accept optional cookies below, your experience may be affected. If you want to know more, please read the <a href="privacy-policy-cookie-restriction-mode" target="_blank">Cookie Policy</a> -> We use cookies to improve our services, make personal offers, and enhance your experience. If you do not accept optional cookies below, your experience may be affected. If you want to know more, please, read the <a href="privacy-policy-cookie-restriction-mode" target="_blank">Cookie Policy</a>]]></confirmation_bar_text>
+                <confirmation_cookies><![CDATA[_ga
+_gid
+_gat
+AMP_TOKEN]]></confirmation_cookies>
+                <notification_website_interaction>0</notification_website_interaction>
+                <confirmation_website_interaction>0</confirmation_website_interaction>
+            </cookie_policy>
+        </amasty_gdpr>
+    </default>
+</config>

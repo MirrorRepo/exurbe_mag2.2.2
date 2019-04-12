@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<preference for="Magento\Store\Block\Switcher" type="Favourite\FProduct\Block\Switcher"/>
+
+
+
+<!-- <type name="Magento\Checkout\Model\DefaultConfigProvider">
+       <plugin name="checkout-summary-product-attribute" type="Favourite\FProduct\Plugin\Checkout\Model\DefaultConfigProviderPlugin" />
+   </type> -->
+
+   <type name="Magento\Checkout\Model\DefaultConfigProvider">
+       <plugin name="Favourite_FProduct_Plugin" type="Favourite\FProduct\Model\ConfigProviderPlugin" sortOrder="1" disabled="false"/>
+   </type>
+</config>

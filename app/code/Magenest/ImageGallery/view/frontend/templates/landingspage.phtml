@@ -1,0 +1,90 @@
+<?php
+$galleryCollection = $block->getLoadAllGalleryCollection();
+$imageCollection = $block->getLoadImageCollection();
+$len = count($galleryCollection);
+$num = 1;
+if ($len) :
+?>
+<div class="gallery_container">
+    <?php foreach ($galleryCollection as $gallery) :
+        if ($gallery->getStatus() == 0) :
+            $str = $gallery->getImageId();
+            $imageIdAll = explode(',', $str);
+            $imageId = [];
+            if (count($imageIdAll) == 1 && $imageCollection->load($imageIdAll[0])->getStatus() == 1) {
+                continue;
+            }
+            foreach ($imageIdAll as $image) {
+                if ($imageCollection->load($image)->getStatus() == 1) {
+                    continue;
+                }
+                array_push($imageId, $image);
+            }
+            ?>
+                <?php foreach ($imageId as $image) :?>
+            <div class="wk_gallery">
+                <div id="maingallery<?php echo $num; ?>" class="wk_gallery_img_container">
+
+                    <a href="<?php echo $this->getUrl() . 'imagegallery/index/gallery/id/' . $gallery->getGalleryId(); ?>"
+                       class="wk_gallery_album">
+                        <?php
+                        $imageCollection->load($imageId[0]);
+                        $urlImage = $this->getUrl() . 'pub/media/' . $imageCollection->getImage();
+                        ?>
+
+                        <img src="<?php echo $urlImage; ?>" class="wk_images wk_active wk_default" style="opacity: 1;">
+                     
+
+
+                            <?php
+                            $imageCollection->load($image);
+                            $urlImage = $this->getUrl() . 'pub/media/' . $imageCollection->getImage();
+                            ?>
+                            <img src="<?php echo $urlImage; ?>" class="wk_images" style="opacity: 0;">
+                     
+                    </a>
+                </div>
+                <div class="wk_gallery_desc"><?php echo $gallery->getTitle() . '(' . count($imageId) . ')'; ?> </div>
+            </div>
+               <?php
+                    endforeach; ?>
+            <?php $num++;
+        endif;
+endforeach;
+endif;
+    ?>
+</div>
+<script type="text/javascript">
+    require(['jquery'], function ($) {
+        $(document).ready(function () {
+            effectCycle = "";
+            $(".wk_gallery_album").on("mouseover", function () {
+                currentObject = $(this);
+                noOfImages = currentObject.find(".wk_images").length;
+                if (noOfImages > 1) {
+                    effectCycle = setInterval(function () {
+                        current = currentObject.find(".wk_active");
+                        currentIndex = current.index() + 1;
+                        if (currentIndex == noOfImages)
+                            next = currentObject.find(".wk_images").eq(0);
+                        else
+                            next = current.next();
+                        current.animate({"opacity": 0}).removeClass("wk_active");
+                        next.animate({"opacity": 1}).addClass("wk_active");
+                    }, 2000);
+                }
+            });
+            $(".wk_gallery_album").on("mouseleave", function () {
+                currentObject = $(this);
+                clearInterval(effectCycle);
+                currentObject.find(".wk_images").css("opacity", "0");
+                currentObject.find(".wk_images").removeClass("wk_active");
+                currentObject.find(".wk_images").removeClass("wk_default");
+                currentObject.find(".wk_images").eq(0).css("opacity", "1");
+                currentObject.find(".wk_images").eq(0).addClass("wk_active");
+                currentObject.find(".wk_images").eq(0).addClass("wk_default");
+            });
+        })
+    });
+</script>
+

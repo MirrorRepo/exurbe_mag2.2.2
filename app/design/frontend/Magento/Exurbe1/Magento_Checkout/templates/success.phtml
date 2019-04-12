@@ -1,0 +1,40 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+$blockObj= $block->getLayout()->createBlock('Favourite\FProduct\Block\CProduct');
+$blockregister =$block->getLayout()->createBlock('Magento\Customer\Block\Form\Register');
+//$block->getLayout()->getBlock('head')->setTitle('Success');
+?>
+
+<?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ ?>
+  <div class="page-title-wrapper success-title">
+    <h1 class="page-title"><?php echo __('Thank you for your order')?></h1>
+  </div>
+<div class="checkout-success">
+    <?php if ($block->getOrderId()):?>
+        <?php if ($block->getCanViewOrder()) :?>
+            <p class="order-no-blk"><?php echo __('Your order number is: %1', sprintf('<div><a href="%s" style="color:white" class="order-number"><span>%s<span></a></div>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?></p>
+        <?php  else :?>
+            <p class="order-no-blk"><?php echo __('Your order number is:'); ?> <div class="order-number"><span><?php echo $block->escapeHtml($block->getOrderId()); ?></span></div></p>
+        <?php endif;?>
+            <p><?php /* @escapeNotVerified */ echo __('In a few moments you will receive an order confirmation by e-mail with further information and a link,') ?> <?php echo __('to be able to follow the order'); ?></p>
+    <?php endif;?>
+
+    <?php echo $block->getAdditionalInfoHtml() ?>
+
+    <div class="actions-toolbar center-con-blk">
+        <div class="primary">
+            <a class="action primary continue" href="<?php /* @escapeNotVerified */ echo $block->getUrl() ?>"><span><?php /* @escapeNotVerified */ echo __('Continue Shopping') ?></span></a>
+            <!-- <a class="action primary continue" href="<?php echo $blockregister->getCreateAccountUrl()?>"><span><?php /* @escapeNotVerified */ echo __('Create an Account') ?></span></a> -->
+        </div>
+    </div>
+
+</div>
+
+<?php //if($blockObj->customer_log_in()){ ?>
+
+<?php //}?>

@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="checkout.cart.items">
+            <container name="checkout.cart.container" htmlTag="div" htmlClass="cart-container" before="-">
+                <container name="cart.summary" label="Cart Summary Container" htmlTag="div" htmlClass="cart-summary" after="-">
+                    <block class="Magento\Framework\View\Element\Template" name="checkout.cart.summary.title" before="-" template="Magento_Theme::text.phtml">
+                        <arguments>
+                            <argument translate="true" name="text" xsi:type="string">Summary</argument>
+                            <argument name="tag" xsi:type="string">strong</argument>
+                            <argument name="css_class" xsi:type="string">summary title</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </container>
+
+
+            <container name="mob_extra" htmlTag="div" htmlClass="c-mobile cart-summary" before="checkout.cart.summary.title">
+              <block class="Magento\Framework\View\Element\Template" name="checkout.cart.summary.title1" template="Magento_Theme::text.phtml">
+                  <arguments>
+                      <argument translate="true" name="text" xsi:type="string">Summary</argument>
+                      <argument name="tag" xsi:type="string">strong</argument>
+                      <argument name="css_class" xsi:type="string">summary title</argument>
+                  </arguments>
+              </block>
+                  <container name="checkout.cart.totals.container.mobile" as="totals1" label="Shopping Cart Totals">
+                      <block class="Magento\Checkout\Block\Cart\Totals" name="totals1" template="cart/totals.phtml">
+                          <arguments>
+                              <argument name="jsLayout" xsi:type="array">
+                                  <item name="components" xsi:type="array">
+                                      <item name="block-totals" xsi:type="array">
+                                          <item name="component" xsi:type="string">Magento_Checkout/js/view/cart/totals</item>
+                                          <item name="displayArea" xsi:type="string">totals</item>
+                                          <item name="config" xsi:type="array">
+                                              <item name="template" xsi:type="string">Magento_Checkout/cart/totals</item>
+                                          </item>
+                                          <item name="children" xsi:type="array">
+                                              <!-- sort order for this totals is configured on admin panel-->
+                                              <!-- Stores->Configuration->SALES->Sales->General->Checkout Totals Sort Order -->
+                                              <item name="subtotal" xsi:type="array">
+                                                  <item name="component"  xsi:type="string">Magento_Checkout/js/view/summary/subtotal</item>
+                                                  <item name="config" xsi:type="array">
+                                                      <item name="title" xsi:type="string" translate="true">Subtotal</item>
+                                                      <item name="template" xsi:type="string">Magento_Checkout/cart/totals/subtotal</item>
+                                                  </item>
+                                              </item>
+                                              <item name="shipping" xsi:type="array">
+                                                  <item name="component"  xsi:type="string">Magento_Checkout/js/view/cart/totals/shipping</item>
+                                                  <item name="config" xsi:type="array">
+                                                      <item name="title" xsi:type="string" translate="true">Shipping</item>
+                                                      <item name="template" xsi:type="string">Magento_Checkout/cart/totals/shipping</item>
+                                                  </item>
+                                              </item>
+                                              <item name="grand-total" xsi:type="array">
+                                                  <item name="component"  xsi:type="string">Magento_Checkout/js/view/summary/grand-total</item>
+                                                  <item name="config" xsi:type="array">
+                                                      <item name="title" xsi:type="string" translate="true">Order Total</item>
+                                                      <item name="template" xsi:type="string">Magento_Checkout/cart/totals/grand-total</item>
+                                                  </item>
+                                              </item>
+                                          </item>
+                                      </item>
+                                  </item>
+                              </argument>
+                          </arguments>
+                      </block>
+
+                      <block class="Magento\Checkout\Block\Cart" name="a" template="cart/methods.phtml" after="checkout.cart.totals.container.mobile">
+                          <container name="b" as="methods" label="Payment Methods After Checkout Button">
+                              <block class="Magento\Checkout\Block\Onepage\Link" name="c" template="onepage/link.phtml" />
+                              <block class="Magento\Checkout\Block\QuoteShortcutButtons" name="d" />
+                          </container>
+                      </block>
+                  </container>
+          </container>
+        </referenceContainer>
+
+
+
+        <move element="checkout.cart.form.before" destination="checkout.cart.container" before="cart.summary"/>
+        <move element="checkout.cart.form" destination="checkout.cart.container" after="cart.summary"/>
+        <move element="checkout.cart.widget" destination="checkout.cart.container" after="checkout.cart.form"/>
+        <move element="checkout.cart.shipping" destination="cart.summary" after="checkout.cart.summary.title"/>
+        <move element="checkout.cart.coupon" destination="cart.summary"/>
+        <move element="checkout.cart.totals.container" destination="cart.summary"/>
+        <move element="checkout.cart.methods.bottom" destination="cart.summary"/>
+
+
+    </body>
+</page>

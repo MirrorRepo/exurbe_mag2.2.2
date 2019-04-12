@@ -1,0 +1,103 @@
+<?php
+	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+	$_product = $block->getProduct();
+
+	$current_product_id=$product_id = $_product->getId();
+
+	$helperImport = $objectManager->get('\Magento\Catalog\Helper\Image');
+
+
+	$productObj = $objectManager->create('Magento\Catalog\Model\Product')->load($product_id);
+	$colorOption = $productObj->getResource()->getAttribute('releted_color')->getFrontend()->getValue($productObj);
+	$colorOptionId = $_product->getResource()->getAttribute('releted_color')->getOptionId($colorOption);
+	$attr = $productObj->getResource()->getAttribute('releted_color');
+  $current_product_code="";
+
+	if ($attr->usesSource()) {
+		$attributeId = $attr->getSource()->getOptionId($colorOption);
+		$resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+		$connection = $resource->getConnection();
+		$tableName = $resource->getTableName('eav_attribute_option_swatch');
+    //echo $attributeId;
+    if($attributeId!=""){
+		$sql = "Select * FROM " . $tableName." where option_id = ".$attributeId;
+		$result_query = $connection->fetchAll($sql);
+		$current_product_code=$productHexCode = $result_query[0]['value'];
+    }
+	}
+	//echo $productHexCode;
+	?>
+
+	<?php
+	$categories = $_product->getCategoryIds(); /*will return category ids array*/
+	foreach($categories as $category){
+
+		$cat = $objectManager->create('Magento\Catalog\Model\Category')->load($category);
+		$cats[] =  $cat->getId();
+    }
+	//print_r($cats);
+	$check = array();
+	@$check[0] = @$cats[0];
+	$Fblock = $this->getLayout()->createBlock('Favourite\FProduct\Block\CProduct');
+	$productCollection = $Fblock->getCategoryProduct($check);
+	?>
+	<div class="category_product" attribute>
+    <ul>
+	<?php
+  $i=0;
+	foreach ($productCollection as $product) {
+
+		$img = $helperImport->init($product, 'product_page_image_small')
+                ->setImageFile($product->getSmallImage()) // image,small_image,thumbnail
+                ->resize(380)
+                ->getUrl();
+                $productHexCode = '';
+     $product_id = $product->getId();
+    if($productHexCode!=="undefined"){
+		try{
+		$objectMansager = \Magento\Framework\App\ObjectManager::getInstance();
+		$productObj = $objectManager->create('Magento\Catalog\Model\Product')->load($product_id);
+		$colorOption = $productObj->getResource()->getAttribute('releted_color')->getFrontend()->getValue($productObj);
+		$colorOptionId = $product->getResource()->getAttribute('releted_color')->getOptionId($colorOption);
+		$attr = $productObj->getResource()->getAttribute('releted_color');
+
+		if ($attr->usesSource()) {
+			$attributeId = $attr->getSource()->getOptionId($colorOption);
+			$resource = $objectMansager->get('Magento\Framework\App\ResourceConnection');
+			$connection = $resource->getConnection();
+			$tableName = $resource->getTableName('eav_attribute_option_swatch');
+			$sql = "Select * FROM " . $tableName." where option_id = ".$attributeId;
+			$result_query = $connection->fetchAll($sql);
+			$productHexCode = $result_query[0]['value'];
+		}
+		}catch(Exception $e){}
+
+      ?><?php
+		if($productHexCode!=""){
+
+		?>
+			<li><a  class="<?=($current_product_code==$productHexCode)?" active":"";?>" href="<?php echo $product->getProductUrl(); ?>">
+				<!-- <img width="49px" height="49px" src="<?php echo $img; ?>" /> -->
+		  <div class="attribDiv<?=($current_product_code==$productHexCode)?" active":"";?>" style="width:49px;height:49px;background-color:<?=$productHexCode?>;display: inline-block;" val="<?=$product_id?>"></div>
+    </a></li>
+		<?php
+  
+			}else{
+		?>
+		<li>	<a  class="<?=($current_product_id==$product_id)?" active":"";?>" href="<?php echo $product->getProductUrl(); ?>" <?=$current_product_id?>>
+
+        <img class="attribDiv" width="49px" height="49px" src="<?php echo $img; ?>" />
+
+
+		  <!-- <div class="attribDiv attribute" style="width:20px;height:20px;background-color:<?=$productHexCode?>;display: inline-block;"></div> -->
+    </a></li>
+		<?php
+
+			}
+	}
+
+
+	}
+
+ ?></ul>
+	</div>

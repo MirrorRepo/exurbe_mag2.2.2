@@ -1,0 +1,54 @@
+  <div class="wrapper mobile_owl">
+    <ul class="owl-carousel">
+  <?php
+  foreach ($productCollection as $product) {
+    // $img = $helperImport->init($product, 'product_page_image_small')
+    //             ->setImageFile($product->getSmallImage()) // image,small_image,thumbnail
+    //             ->resize(380)
+    //             ->getUrl();
+                 $productHexCode = '';
+    $product_id = $product->getId();
+    if($productHexCode!=="undefined"){
+    try{
+    $objectMansager = \Magento\Framework\App\ObjectManager::getInstance();
+    $productObj = $objectManager->create('Magento\Catalog\Model\Product')->load($product_id);
+    $colorOption = $productObj->getResource()->getAttribute('releted_color')->getFrontend()->getValue($productObj);
+    $colorOptionId = $product->getResource()->getAttribute('releted_color')->getOptionId($colorOption);
+    $attr = $productObj->getResource()->getAttribute('releted_color');
+
+    if ($attr->usesSource()) {
+      $attributeId = $attr->getSource()->getOptionId($colorOption);
+      $resource = $objectMansager->get('Magento\Framework\App\ResourceConnection');
+      $connection = $resource->getConnection();
+      $tableName = $resource->getTableName('eav_attribute_option_swatch');
+      $sql = "Select * FROM " . $tableName." where option_id = ".$attributeId;
+      $result_query = $connection->fetchAll($sql);
+      $productHexCode = $result_query[0]['value'];
+    }
+    }catch(Exception $e){}
+
+      ?><?php
+    if($product_id==$product->getId()){
+
+    ?>
+      <li><a  href="<?php echo $product->getProductUrl(); ?>">
+        <!-- <img width="20px" height="20px" src="<?php //echo $img; ?>" /> -->
+      <div class="attribDiv<?=($current_product_code==$productHexCode)?" active":"";?>" style="width:20px;height:20px;background-color:<?=$productHexCode?>;display: inline-block;" val="<?=$product_id?>"></div>
+    </a></li>
+    <?php
+      }else{
+    ?>
+    <li>	<a  href="<?php echo $product->getProductUrl(); ?>">
+        <!-- <img width="30px" height="30px" src="<?php //echo $img; ?>" /> -->
+
+      <div class="attribDiv active selected" style="width:20px;height:20px;background-color:<?=$productHexCode?>;display: inline-block;"></div>
+    </a></li>
+    <?php
+      }
+  }
+
+
+  }
+
+  ?></ul>
+  </div>

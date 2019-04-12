@@ -1,0 +1,187 @@
+  <?php
+  $objectManager =  \Magento\Framework\App\ObjectManager::getInstance();
+$storeManager  = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+$storeID       = $storeManager->getStore()->getStoreId();
+$storeName     = $storeManager->getStore()->getName();
+    $request = $this->getRequest();
+    $module = $request->getModuleName();
+    $controller = $request->getControllerName();
+    $action = $request->getActionName();
+
+    //if($module == 'checkout' && $controller == 'cart' && $action == 'index')
+      if(1)
+    { ?>
+         <!-- 6 options zcfasfd-->
+         <div class="midsection product-list deine">
+           <div class="custom-container">
+             <h3 class="title"><span><?=__("Your benefits");?></span></h3>
+                 <ul class="botmlist">
+               <li class="vegan-blk">
+                 <span class="circle-blk"><img src="<?php echo $this->getViewFileUrl('images/svg/vigan1.svg'); ?>" alt="" /></span>
+                 <h4>100% <?=__("Vegan")?></h4>
+                 <p><?=__("Always vegan. Free from animal by-products.")?></p>
+               </li>
+               <li class="deine2-blk">
+                 <span class="circle-blk"><img src="<?php echo $this->getViewFileUrl('images/svg/rabit1.svg'); ?>" alt="" /></span>
+                 <h4><?=__("Cruelty free");?></h4>
+                 <p><?=__("Cruelty free. All products are free of animal by-products")?></p>
+               </li>
+               <li class="versand-blk">
+                 <span class="circle-blk"><img src="<?php echo $this->getViewFileUrl('images/svg/ship-truck1.svg'); ?>" alt="" /></span>
+                 <h4><?=__("free shipping")?></h4>
+                 <p><?=__("Your order will always be shipped free of charge. Without minimum order quantity.")?></p>
+               </li>
+               <li class="heute-blk">
+                 <span class="circle-blk"><img src="<?php echo $this->getViewFileUrl('images/svg/clock1.svg'); ?>" alt="" /></span>
+                 <h4><?=__("Speedy delivery")?></h4>
+                 <p><?=__("Same day delivery by priority mail for all order placed before 14:00.")?></p>
+               </li>
+               <li class="kauf-blk">
+                 <span class="circle-blk"><img src="<?php echo $this->getViewFileUrl('images/svg/page1.svg'); ?>" alt="" /></span>
+                 <h4><?=__("Purchase on Account")?></h4>
+                 <p><?=__("Order simply and conveniently on account. No additional costs or fees.")?></p>
+               </li>
+               <li class="tage-blk">
+                 <span class="circle-blk"><img src="<?php echo $this->getViewFileUrl('images/svg/reload1.svg'); ?>" alt="" /></span>
+                 <h4><?=__("30 days return policy")?></h4>
+                 <p><?=__("Unopened goods can be returned to us within 30 days.")?></p>
+               </li>
+             </ul>
+           </div>
+         </div>
+        <br/><br/>
+    <?php }
+?>
+<?php
+    if($module == 'checkout' && $controller != 'cart' && $action == 'index')
+    { ?>
+		<style type="text/css">.upper_footer { display: none; } .authentication-wrapper { display: none; }</style>
+	<?php }
+?>
+	<div class="upper_footer">
+		<div class="custom-container">
+			<div class="row">
+				<div class="col-md-4 follow-blk-sm">
+					<h3 class="footer-heading"><span><?=__("Follow us")?></span></h3>
+					<ul class="social_ul">
+						<li><a href="javascript:void(0)"><i class="fa fa-facebook-f"></i></a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-pinterest"></i></a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-instagram"></i></a></li>
+					</ul>
+				</div>
+				<div class="col-md-4 newsletter-blk-sm">
+					<h3 class="footer-heading"><?=__("Subscribe")?></h3>
+
+					 <?php
+							echo  $this->getLayout()->createBlock('Magento\Newsletter\Block\Subscribe')->setTemplate('subscribe.phtml')->toHtml();
+              //$this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('footer_middle')->toHtml();
+					?>
+				</div>
+				<div class="col-md-4 kontact-blk-sm">
+					<h3 class="footer-heading"><?=__("General Contact")?></h3>
+					<p><a href="mailto:contact@exurbecosmetics.com">contact@exurbecosmetics.com</a></p>
+					<p><a href="tel:41445520905">Tel. +41445520905</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="middle_footer">
+		<div class="custom-container">
+			<p><?=__("SAFE SHOPPING. SECURE PAYMENT. SPEEDY DELIVERY.");?></p>
+			<ul class="cardlist">
+				<li><img src="<?php echo $this->getViewFileUrl('images/pay1.jpg'); ?>" alt=""></li>
+				<li class="payment-size"><img src="<?php echo $this->getViewFileUrl('images/svg/flag/mastro1.svg'); ?>" alt=""></li>
+				<li class="payment-size"><img src="<?php echo $this->getViewFileUrl('images/svg/flag/american2.svg'); ?>" alt=""></li>
+				<li class="payment-size"><img src="<?php echo $this->getViewFileUrl('images/svg/flag/visa3.svg'); ?>" alt=""></li>
+				<li class="payment-size"><img src="<?php echo $this->getViewFileUrl('images/svg/flag/paypal4.svg'); ?>" alt=""></li>
+				<li><img src="<?php echo $this->getViewFileUrl('images/pay6.jpg'); ?>" alt=""></li>
+				<li><img src="<?php echo $this->getViewFileUrl('images/pay7.jpg'); ?>" alt=""></li>
+				<li><img src="<?php echo $this->getViewFileUrl('images/pay8.jpg'); ?>" alt=""></li>
+			</ul>
+		</div>
+	</div>
+  <?php
+
+  if ($storeID==1) {
+   echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('footer_link_de')->toHtml();
+  }
+  if ($storeID==2) {
+   echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('footer_link_en')->toHtml();
+  }
+  if ($storeID==3) {
+   echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('footer_link_de')->toHtml();
+  }
+  if ($storeID==4) {
+   echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('footer_link_fr')->toHtml();
+  }
+  if ($storeID==5) {
+   echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('footer_link_de')->toHtml();
+  }
+  if ($storeID==6) {
+   echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('footer_link_en')->toHtml();
+  }
+  if ($storeID==7) {
+   echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('footer_link_fr')->toHtml();
+  }
+  if ($storeID==8) {
+   echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('footer_link_pt')->toHtml();
+  }
+  if ($storeID==9) {
+   echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('footer_link_en')->toHtml();
+  }
+  if ($storeID==10) {
+         echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('footer_link_en')->toHtml();
+
+  }
+?>
+
+<style type="text/css">
+	span.input-number-decrement { font-size: 24px; }
+	span.input-number-increment { font-size: 24px; }
+</style>
+<script>
+
+
+	jQuery(document).ready(function(){
+		jQuery('.footer_toggle').click(function(){
+
+			jQuery('.bottom_footer .bottom_ul').toggle(500);
+
+		});
+		jQuery('.input-number-decrement').click(function() {
+	      var $input = jQuery(this).parents('.input-number-group').find('.input-number');
+	      var val = parseInt($input.val(), 10);
+	      $input.val(val + 1);
+	    });
+
+	    jQuery('.input-number-increment').click(function() {
+	      var $input = jQuery(this).parents('.input-number-group').find('.input-number');
+	      var val = parseInt($input.val(), 10);
+	      $input.val(val - 1);
+	    });
+
+      jQuery("#bottom").on("click" ,function(){
+      //  alert(jQuery(document).height());
+      var scrolled=jQuery(document).height();
+      jQuery('html,body').animate({ scrollTop: jQuery("#cat_down").offset().top }, 1000);
+      });
+
+      jQuery(document).on('click', '#parent_filter_btn', function(event) {
+        event.preventDefault();
+        /* Act on the event */
+        //alert("ok");
+        var sp_class=jQuery(this).find('.glyphicon').attr('class');
+        if(sp_class=="glyphicon glyphicon-menu-down")
+        {
+                  jQuery(this).parent().find('.glyphicon').attr('class','glyphicon glyphicon-menu-up');
+        }else{
+          jQuery(this).parent().find('.glyphicon').attr('class','glyphicon glyphicon-menu-down');
+        }
+        jQuery('.block-content.filter-content').toggleClass('show_div_RG');
+      });
+
+	});
+
+</script>

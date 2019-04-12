@@ -1,0 +1,91 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Form\Login $block */
+?>
+<?php
+/**
+ * Customer login form template
+ *
+ * @see \Magento\Customer\Block\Form\Login
+ * @var $block \Magento\Customer\Block\Form\Login
+ */
+$objectManagerlogin = \Magento\Framework\App\ObjectManager::getInstance();
+
+$customerSession = $objectManagerlogin->get('Magento\Customer\Model\Session');
+$baseurl = $objectManagerlogin->get('Magento\Store\Model\StoreManagerInterface')->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_WEB);
+
+
+ $helper = $this->helper('Favourite\FProduct\Helper\Data');
+
+ //echo "asasa".$helper->isLoggedIn();
+
+//Zend_Debug::dump($customerSession);
+//$this->_logger->debug(var_export($customerSession, true));
+//$logger->info(print_r($customerSession));
+
+?>
+
+
+		<?php
+
+			if($helper->isLoggedIn()) {
+			 ?>
+			 <div class="my_account">
+			<div class="name">Hello <?php echo $customerSession->getCustomer()->getName(); ?></div>
+			<div class="email"> <?php echo $customerSession->getCustomer()->getEmail(); ?></div>
+      <div class="buttons">
+			<a href="<?php echo $baseurl .'customer/account/'; ?>">
+						<?php echo __('My Account') ?>
+					</a>
+			 <a href="<?php echo $baseurl .'customer/account/logout'; ?>">  <?php echo __('Logout') ?></a>
+     </div>
+	</div>
+			<?php
+			}else {
+		?>
+
+    <!-- <div class="block-title"> -->
+			<!-- <span id="login_close" class="login_close" style="float:right;cursor:pointer;"></span> -->
+        <strong id=""><?php /* @escapeNotVerified */ echo __('Registered Customers') ?></strong>
+    <!-- </div> -->
+
+    <div class="block-content" aria-labelledby="block-customer-login-heading">
+			<form class="form form-login"
+						action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>"
+						method="post"
+						id="login-form"
+						data-mage-init='{"validation":{}}'>
+					<?= $block->getBlockHtml('formkey') ?>
+
+            <fieldset class="fieldset login" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>">
+                <!--<div class="field note"><?php /* @escapeNotVerified */ echo __('If you have an account, sign in with your email address.') ?></div>-->
+                <div class="field email required">
+
+                    <div class="control">
+                        <input name="login[username]" value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) :?> autocomplete="off"<?php endif; ?> id="email" type="email" class="input-text" title="<?php /* @escapeNotVerified */ echo __('Email Address:') ?>" data-validate="{required:true, 'validate-email':true}" placeholder="<?php echo __('Email Address:') ?>">
+						 <label class="label" for="email"><div><?php /* @escapeNotVerified */ echo __('Email Address:') ?></div></label>
+                    </div>
+                </div>
+                <div class="field password required">
+
+                    <div class="control">
+                        <input name="login[password]" type="password" <?php if ($block->isAutocompleteDisabled()) :?> autocomplete="off"<?php endif; ?> class="input-text" id="pass" title="<?php /* @escapeNotVerified */ echo __('Password:') ?>" data-validate="{required:true, 'validate-password':true}" placeholder="<?php echo __('Password:') ?>">
+						 <label for="pass" class="label"><div><?php /* @escapeNotVerified */ echo __('Password:') ?></div></label>
+                    </div>
+                </div>
+                <?php echo $block->getChildHtml('form_additional_info'); ?>
+                <div class="actions-toolbar">
+                    <div class="primary"><a class="action remind" href="<?php /* @escapeNotVerified */ echo $block->getForgotPasswordUrl() ?>"><div><?php /* @escapeNotVerified */ echo __('Forgot Your Password?') ?></div></a></div>
+                    <div class="secondary"><button type="submit" class="action login primary" name="send" id="send2"><div><?php /* @escapeNotVerified */ echo __('Login') ?></div></button></div>
+                </div>
+            </fieldset>
+
+		<div id="register-pop-RG-btn"><?php /* @escapeNotVerified */ echo __('Create an Account') ?></div>
+</form>
+<?php } ?>

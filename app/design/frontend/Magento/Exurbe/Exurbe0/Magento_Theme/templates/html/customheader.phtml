@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+<div class="topbar">
+	<div class="custom-container">
+		<ul class="top_ul">
+			<li><img src="<?php echo $this->getViewFileUrl('images/vigan1.png'); ?>" />100% Vegan</li>
+			<li><img src="<?php echo $this->getViewFileUrl('images/rabit1.png'); ?>" alt="" />Ohne Tierversuche</li>
+			<li><img src="<?php echo $this->getViewFileUrl('images/ship-truck1.png'); ?>" alt="" />Kostenloser Versand</li>
+			<li class="hidden-xs"><img src="<?php echo $this->getViewFileUrl('images/clock1.png'); ?>" alt="" />Heute bestellt - Morgen geliefert</li>
+			<li class="hidden-xs"><img src="<?php echo $this->getViewFileUrl('images/page1.png'); ?>" alt="" />Kauf auf Rechnung</li>
+			<li class="hidden-xs"><img src="<?php echo $this->getViewFileUrl('images/reload1.png'); ?>" alt="" />30 Tage Rückgaberecht</li>
+		</ul>
+	</div>
+</div>
+	
+
+    <div class="custom-container">
+		<div class="logo_div"><?php echo $this->getChildHtml("logo"); ?></div>
+		<div class="site_ul">
+			<ul class="main_menu_ul">
+				<?php echo $this->getChildHtml('topMenu');?>				
+			</ul>
+			<ul class="cart_menu_ul">
+				<li>
+				<?php echo $this->getChildHtml('topSearch'); ?> 
+				<a id="topSearch" href="javascript:void(0)" class="search-icon"></a></li>
+				<li>
+				 <?php echo $this->getChildHtml('minicart'); ?>
+				 <a href="javascript:void(0)" class="cart-icon"></a>
+				</li> 
+				<li><a id="login-popup" href="javascript:void(0)" class="user-icon"></a></li>				
+				<li><a href="javascript:void(0)" ><?php echo $this->getChildHtml('store_language') ?></a></li>
+				
+			</ul>
+	   </div>
+    </div>
+   
+<script>
+	jQuery(document).ready(function(){
+		jQuery('#login-popup').click(function(){
+			jQuery('.block-customer-login').toggle();
+			jQuery('.cms-index-index .form-create-account').hide();
+		});
+		jQuery('#topSearch').click(function(){
+			jQuery('.block-search').toggle();
+		});
+			
+		jQuery('#registerForm').click(function(){
+			jQuery('.block-customer-login').hide();
+			jQuery('.cms-index-index .form-create-account').toggle();
+			
+		});
+		jQuery('#login_close').click(function(){
+			jQuery('.block-customer-login').hide();
+		});
+		jQuery('#register_close').click(function(){
+			jQuery('.cms-index-index .form-create-account').hide();
+		});
+	});
+	
+		
+	
+   </script>

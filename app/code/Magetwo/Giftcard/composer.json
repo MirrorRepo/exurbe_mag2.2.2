@@ -1,0 +1,21 @@
+{
+    "name": "magetwo/magento-2-gift-card",
+    "description": "",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Magetwo",
+            "email": "info@magetwo.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Magetwo\\Giftcard\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

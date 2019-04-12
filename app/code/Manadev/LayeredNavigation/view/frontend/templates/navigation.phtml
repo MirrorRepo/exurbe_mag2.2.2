@@ -1,0 +1,67 @@
+<?php
+/**
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/**
+ * @var $block \Manadev\LayeredNavigation\Blocks\Navigation
+ *
+ * Based on app/code/Magento/LayeredNavigation/view/frontend/templates/layer/view.phtml (diff to check
+ * what has changed).
+ */
+?>
+<?php //echo $block->isVisible(); ?>
+<?php if ($block->isVisible()): ?>
+    <div  class="block filter mana-filter-block" data-mage-init='{ "Manadev_LayeredNavigation/js/NavigationView": {} }'>
+        <div class="block-title filter-title" id="parent_filter_btn"><strong id="filter_btn"><?php echo __('Shop By') ?></strong><span class="glyphicon glyphicon-menu-up"></span>
+        </div>
+          <?php if ($block->hasState() && $block->isAppliedFilterVisible()){ ?>
+        <div class="block-content filter-content show_div_RG">
+        <?php }else{ ?>
+            <div class="block-content filter-content">
+      <?php   } ?>
+
+            <dl class="filter-options" id="narrow-by-list">
+              <?php $i=1;$category_filter="";?>
+            <?php foreach ($block->getFilters() as $key=>$filter): ?>
+
+
+
+                <?php $cssClass = $block->getData('css_prefix') . '-filter-' . str_replace('_', '-', $filter->getFilter()->getData('param_name')) ?>
+                <?php if($block->escapeHtml(__($filter->getName()))!="Category"){ ?>
+                <div class="my-list-blk" navi><dt role="heading" aria-level="3" class="filter-options-title <?php echo $cssClass ?>"><?php echo $block->escapeHtml(__($filter->getName())) ?></dt>
+                <dd class="filter-options-content <?php echo $cssClass ?>"><?php echo $block->renderFilter($filter) ?></dd>
+        </div>
+      <?php } ?>
+
+
+
+            <?php endforeach; ?>
+            <div class="filter_btn_blk">
+            <button type="submit" id="mana_submit_RG" title="Ok" class="action primary">
+                                                            <span>OK</span>
+                                                        </button></div>
+            </dl>
+            <strong role="heading" aria-level="2" class="block-subtitle filter-subtitle"><?php echo __('Shopping Options') ?>
+                <?php echo $block->getApplyHtml() ?>
+            </strong>
+            <?php if ($block->hasState() && $block->isAppliedFilterVisible()) : ?>
+                <div class="filter-current">
+                    <strong class="block-subtitle filter-current-subtitle" role="heading" aria-level="2" data-count="<?php echo $block->getAppliedOptionCount() ?>"><?php echo __('Now Shopping by') ?></strong>
+                    <ol class="items">
+                        <?php foreach ($block->getAppliedFilters() as $engineFilter): ?>
+                            <?php foreach ($engineFilter->getAppliedItems() as $item) : ?>
+                                <li class="item"><?php echo $block->renderAppliedItem($engineFilter, $item) ?></li>
+                            <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    </ol>
+                </div>
+
+                <div class="block-actions filter-actions">
+                        <a href="<?php echo $block->getClearUrl() ?>"<?php echo $block->getClearLinkAttributes() ?> class="action clear filter-clear"><span><?php echo __('Clear All') ?></span></a>
+                    </div>
+            <?php endif; ?>
+
+        </div>
+    </div>
+<?php endif; ?>

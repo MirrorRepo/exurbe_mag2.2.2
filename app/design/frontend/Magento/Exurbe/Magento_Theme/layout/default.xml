@@ -1,0 +1,77 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+      <!--To add custom logo-->
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/svg/logo.svg</argument>
+                <argument name="logo_img_width" xsi:type="number">269</argument>
+                <argument name="logo_img_height" xsi:type="number">69</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="store.menu">
+ <container htmlTag="ul" htmlClass="nav_mob">
+			<block class="Magento\Framework\View\Element\Html\Link">
+				<arguments>
+					<argument name="label" xsi:type="string">My Account</argument>
+					<argument name="path" xsi:type="string">customer/account/</argument>
+          <argument name="class" xsi:type="string">myaccount_mobile</argument>
+					<!-- <argument name="path" xsi:type="string">about-us</argument> -->
+				</arguments>
+			</block>
+			<block class="Magento\Framework\View\Element\Html\Link">
+				<arguments>
+				  <argument name="label" xsi:type="string">Login</argument>
+				  <argument name="path" xsi:type="string">customer/account/login</argument>
+
+				</arguments>
+			</block>
+			<block class="Magento\Framework\View\Element\Html\Link">
+				<arguments>
+				  <argument name="label" xsi:type="string">Create Account</argument>
+				  <argument name="path" xsi:type="string">customer/account/create</argument>
+				  <!-- <argument name="path" xsi:type="string">about-us</argument> -->
+				</arguments>
+			</block>
+      </container>
+			<block  class="Favourite\FProduct\Block\Switcher" name="custom_store_language"  template="Favourite_FProduct::switch/languages1.phtml"/>
+      <block class="Magento\Framework\View\Element\Template" name="top.search_menu" as="topSearch_menu" template="Magento_Search::form_search.phtml"/>
+
+		</referenceBlock>
+
+
+    <referenceContainer name="columns.top">
+        <block class="Magento\Theme\Block\Html\Title" name="page.main.title" template="html/title.phtml"/>
+        <container name="page.messages" htmlTag="div" htmlClass="page messages">
+            <block class="Magento\Framework\View\Element\Template" name="ajax.message.placeholder" template="Magento_Theme::html/messages.phtml"/>
+            <block class="Magento\Framework\View\Element\Messages" name="messages" as="messages" template="Magento_Theme::messages.phtml"/>
+        </container>
+    </referenceContainer>
+        <referenceContainer name="header.container">
+            <block class="Favourite\FProduct\Block\Register" name="custom_header" as="custom_header" template="Magento_Theme::html/title.phtml"/>
+            <block class="Favourite\FProduct\Block\Register" name="custom_header" as="custom_header" template="Magento_Theme::html/customheader.phtml"/>
+			<block class="Magento\Customer\Block\Form\Login" name="custom_customer_form_login" template="Magento_Theme::form/login.phtml" />
+			<block class="Magento\Customer\Block\Form\Register" name="custom_customer_form_register" template="Magento_Theme::form/register.phtml" />
+
+        </referenceContainer>
+
+		<referenceContainer name="footer-container">
+			<block class="Magento\Framework\View\Element\Template" name="custom_footer" as="custom_footer" template="Magento_Theme::html/customfooter.phtml"/>
+
+		</referenceContainer>
+        <referenceContainer name="header.panel" remove="true" />
+
+		<referenceBlock name="footer_links" remove="true"/>
+		<referenceBlock name="report.bugs" remove="true"/>
+		<referenceBlock name="copyright" remove="true"/>
+		<referenceBlock name="form.subscribe" remove="true" />
+		<referenceBlock name="top.search" remove="false"/>
+		<referenceBlock name="top.links" remove="false"/>
+		<referenceBlock name="sale.reorder.sidebar" remove="true"/>
+		<move element="logo" as="logo" destination="custom_header"/>
+		<move element="minicart" destination="custom_header" />
+		<move element="top.search" destination="custom_header"   />
+		<move element="store_language"  destination="custom_header"  />
+
+		<referenceBlock name="product.info.description" remove="true" />
+	</body>
+</page>
